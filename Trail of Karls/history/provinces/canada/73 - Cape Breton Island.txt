@@ -1,0 +1,6 @@
+owner = SCA
+controller = SCA
+add_core = NEW
+trade_goods = coal
+life_rating = 31
+colonial = 2

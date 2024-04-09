@@ -1,0 +1,7 @@
+owner = UBR
+controller = UBR
+add_core = UBR
+add_core = SWI
+trade_goods = iron
+life_rating = 34
+fort = 1

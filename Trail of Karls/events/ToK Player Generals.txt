@@ -1,0 +1,57 @@
+country_event = {
+	id = 800000
+	allow_multiple_instances = yes
+	picture = "joe_biden"
+	trigger = {
+		ai = no
+		NOT = {tag = ELI}
+		NOT = {
+			has_leader = "EchtDavid"
+		}
+	}
+	mean_time_to_happen = {
+		days = 0
+	}
+	title = "He woke up!"
+	desc = ""
+	immediate = {
+		define_general = {
+			name = "EchtDavid"
+			personality = unflinching
+			#3/3 General
+			background = school_of_defense
+		}
+	}
+	option = {
+		name = ""		
+	}
+}
+
+country_event = {
+	id = 800001
+	allow_multiple_instances = yes
+	picture = "alberto_barbosa"
+	trigger = {
+		ai = no
+		NOT = {
+			has_leader = "Alberto Barbosa"
+		}
+		tag = ELI
+	}
+	mean_time_to_happen = {
+		days = 0
+	}
+	title = "Alberto Barbosa"
+	desc = "EVTDESC800001"
+	immediate = {
+		define_general = {
+			name = "Alberto Barbosa"
+			personality = implacable
+			#4/4 General
+			background = stalwart
+		}
+	}
+	option = {
+		name = "It's about time..."		
+	}
+}

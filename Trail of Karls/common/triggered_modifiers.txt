@@ -1,0 +1,345 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+political_reformed_nation = {
+		trigger = {
+			exists = yes
+			slavery = no_slavery
+			vote_franschise = universal_voting
+			OR = { voting_system = first_past_the_post voting_system = jefferson_method voting_system = proportional_representation }
+			OR = { upper_house_composition = state_equal_weight upper_house_composition = population_equal_weight }
+			trade_unions = all_trade_unions
+			public_meetings = yes_meeting
+			press_rights = free_press
+			political_parties = secret_ballots
+		}
+		
+	political_reform_desire = -1.0
+	social_reform_desire = 0.5
+	icon = 13
+}
+
+social_reformed_nation = {
+		trigger = {
+			exists = yes
+			wage_reform = good_minimum_wage
+			work_hours = eight_hours
+			safety_regulations = good_safety
+			unemployment_subsidies = good_subsidies
+			pensions = good_pensions
+			health_care = good_health_care
+			school_reforms = good_schools
+            citizens_rights = all_voting_pops
+			child_labor = child_labor_illegal
+			
+		}
+		
+	social_reform_desire = -1.0
+	icon = 13
+}
+
+neglected_education = {
+    trigger = {
+        exists = yes
+        civilized = yes
+        ai = no
+        number_of_states = 2
+        total_pops = 1000000
+        OR = {
+            AND = {
+                literacy = 0.75
+                NOT = { education_spending = 0.3 }
+            }
+            AND = {
+                literacy = 0.5
+                NOT = { education_spending = 0.2 }
+            }
+            AND = {
+                literacy = 0.25
+                NOT = { education_spending = 0.1 }
+            }
+        }
+    }
+    education_efficiency_modifier = -1
+    icon = 19
+}
+
+vassal_nation = {
+    trigger = {
+        exists = yes
+        is_vassal = yes
+        is_substate = no
+    }
+    icon = 10
+    prestige = -0.1
+    land_defense_modifier = -1
+    land_attack_modifier = -1
+}
+
+substate_nation = {
+    trigger = {
+        exists = yes
+        is_substate = yes
+        civilized = yes
+        ai = yes
+    }
+
+    prestige = -0.25
+    max_loan_modifier = -1.0
+    min_tax = 0.25
+    max_military_spending = -0.25
+    min_tariff = 1.2
+    tax_efficiency = 0.3
+    land_defense_modifier = -1
+    land_attack_modifier = -1
+
+    icon = 10
+}
+
+substate_nation_player = {
+    trigger = {
+        exists = yes
+        is_substate = yes
+        civilized = yes
+        ai = no
+    }
+
+    prestige = -0.25
+    max_loan_modifier = -1.0
+    max_military_spending = -0.25
+    tax_efficiency = 0.3
+
+    icon = 10
+}
+
+own_kiel_canal = {
+	trigger = {
+		exists = yes
+		owns = 369
+		civilized = yes
+		is_canal_enabled = 1
+	}
+	icon = 9
+	tariff_efficiency_modifier = 0.1
+	tax_efficiency = 0.1
+}
+
+own_suez_canal = {
+	trigger = {
+		exists = yes
+		owns = 1755
+		civilized = yes
+		is_canal_enabled = 2
+	}
+	icon = 9
+	tariff_efficiency_modifier = 0.2
+	tax_efficiency = 0.2
+	prestige = 0.01
+}
+
+own_panama_canal = {
+	trigger = {
+		exists = yes
+		owns = 1723
+		civilized = yes
+		is_canal_enabled = 3
+	}
+	icon = 9
+	tariff_efficiency_modifier = 0.05
+	tax_efficiency = 0.05
+	prestige = 0.02
+}
+
+landlocked_nation = {
+    trigger = {
+        exists = yes
+        NOT = { total_num_of_ports = 1 }
+    }
+    
+    global_immigrant_attract = -1.5
+    icon = 8
+}
+
+educational_spen = {
+        trigger = {
+            ai = yes
+            exists = yes
+            administration_spending = 0.74
+        }
+
+    education_efficiency_modifier = 0.3
+    icon = 16
+}
+
+admin_spen = {
+        trigger = {
+            ai = yes
+            exists = yes
+            administration_spending = 0.74
+        }
+
+    administrative_efficiency_modifier = 0.3
+    icon = 16
+}
+
+hormuz_strait = {
+        trigger = {
+            exists = yes
+            year = 1880
+            owns = 1071
+            owns = 2664
+        }
+
+    tax_efficiency = 0.01
+    tariff_efficiency_modifier = 0.05
+    icon = 16
+}
+
+giga_sanctions = {
+	trigger = {
+	exists = yes
+	badboy = 1.8
+	}
+	research_points_modifier = -0.25
+	poor_everyday_needs = 0.3
+	middle_everyday_needs = 0.3
+	rich_everyday_needs = 0.3
+	poor_luxury_needs = 0.3
+	middle_luxury_needs = 0.3
+	rich_luxury_needs = 0.3
+	loan_interest = 0.2
+	global_pop_militancy_modifier = 0.01
+	global_pop_consciousness_modifier = 0.02
+	icon = 12
+}
+
+no_safety_pop = {
+    trigger = {
+        exists = yes
+        safety_regulations = no_safety
+    }
+    global_population_growth = -0.0005
+}
+
+baltic_monopoly = {
+    trigger = {
+        exists = yes
+        capital_scope = {
+            continent = europe
+        }
+        has_global_flag = baltic_monopoly
+        NOT = {
+            tag = LUB
+        }
+    }
+    tariff_efficiency_modifier = -0.15
+}
+
+baltic_monopoly_lub = {
+    trigger = {
+        exists = yes
+        OR = {
+            tag = LUB
+            has_country_flag = the_hansa
+        }
+        has_global_flag = baltic_monopoly
+    }
+    tariff_efficiency_modifier = 0.20
+    tax_efficiency = 0.05
+}
+
+trinket_health_care_funding = {
+    trigger = {
+        exists = yes
+        civilized = yes
+        health_care = trinket_health_care
+        NOT = {
+            social_spending = 0.20
+        }
+    }
+    poor_luxury_needs = 0.025
+    middle_luxury_needs = 0.025
+}
+
+low_health_care_funding = {
+    trigger = {
+        exists = yes
+        civilized = yes
+        health_care = low_health_care
+        NOT = {
+            social_spending = 0.40
+        }
+    }
+    poor_luxury_needs = 0.05
+    middle_luxury_needs = 0.05
+}
+
+acceptable_health_care_funding = {
+    trigger = {
+        exists = yes
+        civilized = yes
+        health_care = acceptable_health_care
+        NOT = {
+            social_spending = 1
+        }
+    }
+    poor_luxury_needs = 0.075
+    middle_luxury_needs = 0.075
+    global_population_growth = 0.001
+}
+
+good_health_care_funding = {
+    trigger = {
+        exists = yes
+        civilized = yes
+        health_care = good_health_care
+        NOT = {
+            social_spending = 1
+        }
+    }
+    poor_luxury_needs = 0.1
+    middle_luxury_needs = 0.1
+    global_population_growth = 0.001
+}
+
+ai_buffs_peace = {
+    trigger = {
+        exists = yes
+        ai = yes
+        civilized = yes
+    }
+    education_efficiency_modifier = 0.30
+    administrative_efficiency_modifier = 0.30
+}
+
+ai_buffs_war = {
+    trigger = {
+        exists = yes
+        ai = yes
+        civilized = yes
+        war = yes
+    }
+    supply_consumption = -0.15
+    reinforce_speed = 0.15
+}
+
+ai_tariff_free_trade = {
+    trigger = {
+        exists = yes
+        ai = yes
+        trade_policy = free_trade
+    }
+    min_tariff = 1.25
+    max_tariff = 0.5
+}
+
+ai_tariff_free_trade = {
+    trigger = {
+        exists = yes
+        ai = yes
+        trade_policy = protectionism
+    }
+    min_tariff = 0.75
+}

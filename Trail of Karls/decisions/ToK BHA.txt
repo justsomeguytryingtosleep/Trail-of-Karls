@@ -1,0 +1,199 @@
+political_decisions = {
+    form_ottokaria = {
+        potential = {
+            tag = BHA
+            NOT = {
+                OTO = {
+                    exists = yes
+                }
+            }
+        }
+        allow = {
+            all_core = {
+                OR = {
+                    owned_by = THIS
+                    owner = {
+                        in_sphere = THIS
+                        OR = {
+                            is_vassal = no
+                            vassal_of = THIS
+                        }
+                        war = no
+                        is_mobilised = no
+                        is_greater_power = no
+                    }
+                }
+            }
+            BAV = {
+                all_core = {
+                    OR = {
+                        owned_by = THIS
+                        owner = {
+                            in_sphere = THIS
+                            OR = {
+                                is_vassal = no
+                                vassal_of = THIS
+                            }
+                            war = no
+                            is_mobilised = no 
+                            is_greater_power = no
+                        }
+                    }
+                }
+            }
+            WUR = {
+                all_core = {
+                    OR = {
+                        owned_by = THIS
+                        owner = {
+                            in_sphere = THIS
+                            OR = {
+                                is_vassal = no
+                                vassal_of = THIS
+                            }
+                            war = no
+                            is_mobilised = no 
+                            is_greater_power = no
+                        }
+                    }
+                }
+            }
+            BAD = {
+                all_core = {
+                    OR = {
+                        owned_by = THIS
+                        owner = {
+                            in_sphere = THIS
+                            OR = {
+                                is_vassal = no
+                                vassal_of = THIS
+                            }
+                            war = no
+                            is_mobilised = no 
+                            is_greater_power = no
+                        }
+                    }
+                }
+            }
+            HES = {
+                all_core = {
+                    OR = {
+                        owned_by = THIS
+                        owner = {
+                            in_sphere = THIS
+                            OR = {
+                                is_vassal = no
+                                vassal_of = THIS
+                            }
+                            war = no
+                            is_mobilised = no 
+                            is_greater_power = no
+                        }
+                    }
+                }
+            }
+            state_n_government = 1
+        }
+        effect = {
+            add_accepted_culture = western_slavic
+            add_accepted_culture = serb
+            prestige = 25
+            change_tag = OTO
+            BHA = {
+                all_core = {
+                    add_core = OTO
+                    remove_core = BHA
+                }
+            }
+            BAV = {
+                all_core = {
+                    add_core = OTO
+                    remove_core = BAV
+                }
+            }
+            WUR = {
+                all_core = {
+                    add_core = OTO
+                    remove_core = WUR
+                }
+            }
+            BAD = {
+                all_core = {
+                    add_core = OTO
+                    remove_core = BAD
+                }
+            }
+            HES = {
+                all_core = {
+                    add_core = OTO
+                    remove_core = HES 
+                }
+            }
+            PLT = {
+                all_core = {
+                    add_core = OTO
+                }
+            } 
+            FRA_412 = {
+                add_core = OTO
+            } 
+            any_country = {
+                limit = {
+                    in_sphere = THIS
+                    primary_culture = south_german
+                }
+                annex_to = THIS
+            }
+        }
+    }
+
+    further_conquests_germany = {
+        potential = {
+            tag = OTO
+            NOT = {
+                has_country_flag = further_conquests_ger
+            }
+            NOT = {
+                has_country_flag = further_conquests_rmr
+            }
+        }
+        allow = {
+            revolution_n_counterrevolution = 1
+            NGF = {
+                is_greater_power = no
+            }
+            LUB = {
+                is_greater_power = no
+            }
+            GER = {
+                exists = no
+            }
+            war = no
+            is_greater_power = yes
+        }
+        effect = {
+            prestige = 75
+            badboy = 20
+            GER = {
+                all_core = {
+                    limit = {
+                        OR = {
+                            culture = north_german
+                            culture = south_german
+                        }
+                    }
+                    add_core = THIS
+                }
+            }
+            any_country = {
+                limit = {
+                    primary_culture = north_german
+                    in_sphere = THIS
+                    ai = yes
+                }
+                annex_to = THIS
+            }
+            set_country_flag = further_conquests_ger
+        }
+    }
+}

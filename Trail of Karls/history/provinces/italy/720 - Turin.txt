@@ -1,0 +1,15 @@
+owner= TIR
+controller = TIR
+add_core = TIR
+trade_goods = fruit
+life_rating = 40
+state_building = {
+    level = 1
+    building = luxury_clothes_factory
+    upgrade = yes
+}
+state_building = {
+    level = 1
+    building = regular_clothes_factory
+    upgrade = yes
+}

@@ -1,0 +1,31 @@
+political_decisions = {
+    end_the_pogroms = {
+        potential = {
+            OR = {
+                primary_culture = russian
+                primary_culture = ukrainian
+            }
+            NOT = {
+                has_country_flag = prohibited_pogroms
+            }
+        }
+        allow = {
+            NOT = {
+                ruling_party_ideology = fascist
+            }
+            literacy = 0.4
+            citizens_rights = all_voting_pops
+        }
+        effect = {
+            prestige = 15
+            any_pop = {
+                limit = {
+                    has_pop_religion = jewish
+                }
+                militancy = -3
+                consciousness = -5
+            }
+            set_country_flag = prohibited_pogroms
+        }
+    }
+}

@@ -1,0 +1,78 @@
+leader = {
+    name = "Lianbo"
+    date = 1827.1.1
+    type = land
+    background = merciless
+    personality = adventurer
+}
+
+
+
+
+army = {
+    name = "Brentesion Spartans"
+    location = 498
+
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Kanonenbohnen"
+        type = artillery
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Kanonenbohnen"
+        type = artillery
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Kanonenbohnen"
+        type = artillery
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 498
+    }
+    regiment = {
+        name = "Kanonenbohnen"
+        type = artillery
+        home = 498
+    }
+    
+    
+}

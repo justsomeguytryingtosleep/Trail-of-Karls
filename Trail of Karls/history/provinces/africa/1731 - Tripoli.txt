@@ -1,0 +1,12 @@
+owner = TRI
+controller = TRI
+add_core = TRI
+trade_goods = fruit
+life_rating = 35
+terrain = plains
+naval_base = 2
+state_building = {
+    level = 1
+    building = artillery_factory
+    upgrade = yes
+}

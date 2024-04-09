@@ -1,0 +1,237 @@
+political_decisions = {
+	MEX_1836_setup = {
+		potential = {
+			tag = MEX
+			always = no
+		}
+		allow = {
+			tag = MEX
+		}
+		effect = {
+            set_country_flag = messico
+            MEX_89 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            MEX_100= {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            MEX_2138= {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            MEX_2142= {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            133= {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            43 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            132 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            134 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            135 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            136 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            137 = {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            138= {
+                add_province_modifier = {
+                    name = mex_wild_north
+                    duration = -1
+                }
+            }
+            
+            2137 = {remove_province_modifier = mex_wild_north}
+            2141 = {remove_province_modifier = mex_wild_north}
+            2142 = {remove_province_modifier = mex_wild_north}
+	    }
+	}
+    BHA_1836_setup = {
+        potential = {
+            tag = BHA
+            always = no
+        }
+        allow = {
+            tag = BHA
+        }
+        effect = {
+            set_global_flag = war_for_bohemia
+        }
+    }
+
+    POL_1836_setup = {
+        potential = {
+            tag = POL
+            always = no
+        }
+        allow = {
+            tag = POL
+        }
+        effect = {
+            add_country_modifier = {
+                name = curtailed_conscription
+                duration = 182
+            }
+            SIK = {
+                country_event = {
+                    id = 10000000
+                    days = 0
+                }
+            }
+        }
+    }
+
+    LUB_1836_setup = {
+        potential = {
+            tag = LUB
+            always = no
+        }
+        allow = {
+            tag = LUB
+        }
+        effect = {
+            530 = {
+                add_province_modifier = {
+                    name = center_of_baltic_trade
+                    duration = -1
+                }
+            }
+            354 = {
+                add_province_modifier = {
+                    name = hanseatic_city
+                    duration = -1
+                }
+            }
+            690 = {
+                add_province_modifier = {
+                    name = hanseatic_city
+                    duration = -1
+                }
+            }
+            695 = {
+                add_province_modifier = {
+                    name = hanseatic_city
+                    duration = -1
+                }
+            }
+            679 = {
+                add_province_modifier = {
+                    name = wendish_oppression
+                    duration = -1
+                }
+            }
+            680 = {
+                add_province_modifier = {
+                    name = wendish_oppression
+                    duration = -1
+                }
+            }
+            set_country_flag = the_hansa
+        }
+    }
+
+    JER_1836_setup = {
+        potential = {
+            tag = JER
+            always = no
+        }
+        allow = {
+            tag = JER
+        }
+        effect = {
+            add_country_modifier = {
+                name = jerusalem_monks
+                duration = -1
+            }
+        }
+    }
+
+    MGL_1836_setup = {
+        potential = {
+            tag = MGL
+            always = no
+        }
+        allow = {
+            tag = MGL
+        }
+        effect = {
+            add_country_modifier = {
+                name = mongolian_army_debuff_1
+                duration = -1
+            }
+            MCK = {
+                government = mongolian_dependency
+            }
+        }
+    }
+    
+    LITERACY_1836_SETUP = {
+        potential = {
+            tag = SIK
+            always = no
+        }
+        allow = {
+            always = no
+        }
+        effect = {
+            any_country = {
+                country_event = {
+                    id = 10000001
+                    days = 0
+                }
+            }
+        }
+    }
+}

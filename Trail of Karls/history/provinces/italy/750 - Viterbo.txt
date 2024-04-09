@@ -1,0 +1,5 @@
+owner= SYC
+controller = SYC
+add_core = SYC
+trade_goods = fruit
+life_rating = 35

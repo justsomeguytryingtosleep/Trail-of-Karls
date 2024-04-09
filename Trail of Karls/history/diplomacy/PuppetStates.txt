@@ -1,0 +1,134 @@
+#Ethiopia
+#Shewa-Kaffa
+vassal = {
+    first = SHW
+    second = KAF
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+#Shewa-Gonder
+vassal = {
+    first = SHW
+    second = GON
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+#Polish PUs
+substate = {
+    first = POL
+    second = HUN
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+vassal = {
+    first = POL
+    second = SLS
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Hansa-Mittelamerika
+vassal = {
+	first = LUB
+	second = UCA
+	start_date = 1836.1.1
+	end_date = 1936.1.1
+}
+
+#Netherlands-Frisian Duchy
+vassal = {
+    first = NET
+    second = EAS
+	start_date = 1836.1.1
+	end_date = 1936.1.1    
+}
+
+#Netherlands-Tidore Sultanate
+vassal = {
+    first = NET
+    second = MAL
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Netherlands-Yogyakarta/Surakarta Sultanate
+vassal = {
+    first = NET
+    second = JAV
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Netherlands-Siak Sultanate
+vassal = {
+    first = NET
+    second = SAK
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Netherlands-Siak Sultanate
+vassal = {
+    first = NET
+    second = DJA
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Netherlands-Mysore
+vassal = {
+	first = NET
+	second = MYS
+	start_date = 1836.1.1
+	end_date = 1936.1.1
+}
+
+#Norway-Sweden
+vassal = {
+    first = SWE
+    second = NOR
+    start_date = 1836.1.1
+    end_date = 1905.1.1
+}
+
+#Mongolia-Jurchen(Yuan)
+vassal = {
+    first = MGL
+    second = MCK
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Bohemia-Bavaria
+vassal = {
+    first = BHA
+    second = BAV
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+
+
+#Rome-Cisalpine
+vassal = {
+    first = RMR
+    second = CIS
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}
+
+#Epirus Puppets
+vassal = {
+    first = EPI
+    second = MEA
+    start_date = 1836.1.1
+    end_date = 1936.1.1    
+}
+
+vassal = {
+    first = EPI
+    second = ATH
+    start_date = 1836.1.1
+    end_date = 1936.1.1
+}

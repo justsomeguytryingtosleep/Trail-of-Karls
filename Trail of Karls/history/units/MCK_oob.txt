@@ -1,0 +1,34 @@
+army = {
+    name = "Yellow Banner"
+    location = 1613
+
+    regiment = {
+        name= "1st Manzhouli Jalan"
+        type = cavalry
+        home = 1002
+    }
+
+    regiment = {
+        name= "1st Ninguta Jalan"
+        type = cavalry
+        home = 1554
+    }
+
+    regiment = {
+        name = "2nd Ninguta Jalan"
+        type = cavalry
+        home = 1554
+    }
+
+    regiment = {
+        name= "1st Chengde Jalan"
+        type = cavalry
+        home = 1613
+    }
+
+    regiment = {
+        name= "2nd Mukden Jalan"
+        type = cavalry
+        home = 1479
+    }
+}

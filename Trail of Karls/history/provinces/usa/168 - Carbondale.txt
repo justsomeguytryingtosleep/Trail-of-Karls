@@ -1,0 +1,5 @@
+owner = GPN
+controller = GPN
+add_core = GPN
+trade_goods = cattle
+life_rating = 30

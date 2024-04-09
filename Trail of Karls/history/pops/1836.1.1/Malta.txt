@@ -1,0 +1,59 @@
+#Malta - 120000
+#Ruled by Britain 1836
+#Valetta (110000/27500 POPS)
+854 = {
+    bureaucrats = {
+        culture = syracusean
+        religion = catholic
+        size = 150
+    }
+
+    soldiers = {
+        culture = french
+        religion = catholic
+        size = 6000
+    }
+
+    artisans = {
+        culture = french
+        religion = catholic
+        size = 150
+    }
+
+    aristocrats = {
+        culture = maghrebi
+        religion = sunni
+        size = 600
+    }
+
+    clergymen = {
+        culture = french
+        religion = catholic
+        size = 275
+    }
+
+    artisans = {
+        culture = syracusean
+        religion = catholic
+        size = 5500
+    }
+
+    soldiers = {
+        culture = syracusean
+        religion = catholic
+        size = 340
+    }
+
+    farmers = {
+        culture = syracusean
+        religion = catholic
+        size = 13475
+    }
+	
+	farmers = {
+        culture = maghrebi
+        religion = sunni
+        size = 12475
+    }
+
+}

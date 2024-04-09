@@ -1,0 +1,6 @@
+owner= TIR
+controller = TIR
+add_core = TIR
+terrain = hills
+trade_goods = cattle
+life_rating = 25

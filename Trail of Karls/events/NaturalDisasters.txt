@@ -1,0 +1,411 @@
+#Tunguska Meteor Strike
+country_event = {
+    id = 21500
+    title = "EVTNAME21500"
+    desc = "EVTDESC21500"
+    news = yes
+    news_desc_long = "EVTDESC21500_NEWS_LONG"
+    news_desc_medium = "EVTDESC21500_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC21500_NEWS_SHORT"
+    picture = "destroyed_forest"
+
+    fire_only_once = yes
+
+    trigger = {
+        year = 1908
+        owns = 2694
+    }
+
+    mean_time_to_happen = {
+        months = 4
+    }
+
+    option = {
+        name = "EVTOPTA21500"
+        random_owned = { limit = { province_id = 2694 has_building = railroad } infrastructure = -6 }
+        random_owned = { limit = { province_id = 2694 has_building = fort } fort = -6 }
+        random_owned = { limit = { province_id = 2694 total_pops = 10000 } any_pop = { reduce_pop = 0.99 } }
+    }
+}
+
+#Krakatoa Explodes
+country_event = {
+    id = 21510
+    title = "EVTNAME21510"
+    desc = "EVTDESC21510"
+    news = yes
+    news_desc_long = "EVTDESC21510_NEWS_LONG"
+    news_desc_medium = "EVTDESC21510_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC21510_NEWS_SHORT"
+    picture = "pelee"
+
+    fire_only_once = yes
+
+    trigger = {
+        year = 1883
+        owns = 1414
+    }
+
+    mean_time_to_happen = {
+        months = 5
+    }
+
+    option = {
+        name = "EVTOPTA21510"
+        1414 = { any_pop = { reduce_pop = 0.96 } life_rating = -1 }
+        random_owned = { limit = { province_id = 1414 has_building = railroad } infrastructure = -1 }
+        random_owned = { limit = { province_id = 1414 has_building = fort } fort = -1 }
+        random_owned = { limit = { province_id = 1413 has_building = naval_base } naval_base = -1 }
+    }
+}
+
+#The Drought of $YEAR$
+country_event = {
+    id = 21527
+    title = "EVTNAME21527"
+    desc = "EVTDESC21527"
+    picture = "dry_year"
+
+    trigger = {
+        any_owned_province = {
+            is_core = THIS
+            has_pop_type = farmers
+            is_colonial = no
+            is_overseas = no
+            NOT = {
+                terrain = desert
+                terrain = montane_tundra
+                terrain = arctic
+                has_province_modifier = homeland_drought
+                has_province_modifier = severe_homeland_drought
+                has_province_modifier = homeland_productive_year
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 700
+        modifier = {
+            factor = 0.8
+            any_owned_province = {
+                any_neighbor_province = {
+                    NOT = { owned_by = THIS }
+                    has_province_modifier = homeland_drought
+                }
+            }
+        }
+        modifier = {
+            factor = 0.7
+            any_owned_province = {
+                any_neighbor_province = {
+                    NOT = { owned_by = THIS }
+                    has_province_modifier = severe_homeland_drought
+                }
+            }
+        }
+        #modifier = {
+        #    factor = 2
+        #    invention = oil_pumping_machinery
+        #}
+        modifier = {
+            factor = 2
+            any_owned_province = {
+                any_neighbor_province = {
+                    NOT = { owned_by = THIS }
+                    has_province_modifier = homeland_productive_year
+                }
+            }
+        }
+    }
+
+    option = {
+        name = "EVTOPTA21527"
+        random_list = {
+            50 = {
+                random_owned = {
+                    limit = { is_capital = yes continent = europe }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = europe
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = asia }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = asia
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = africa }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = africa
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = north_america }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = north_america
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = south_america }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = south_america
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = oceania }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = oceania
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = australia_new_zealand }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = australia_new_zealand
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = homeland_drought duration = 365 }
+                        }
+                    }
+                }
+            }
+
+            50 = {
+                random_owned = {
+                    limit = { is_capital = yes continent = europe }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = europe
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = asia }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = asia
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = africa }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = africa
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = north_america }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = north_america
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = south_america }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = south_america
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = oceania }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = oceania
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+
+                random_owned = {
+                    limit = { is_capital = yes continent = australia_new_zealand }
+                    owner = {
+                        any_owned = {
+                            limit = {
+                                has_pop_type = farmers
+                                is_colonial = no
+                                continent = australia_new_zealand
+                                is_overseas = no
+                                NOT = {
+                                    terrain = desert
+                                    terrain = montane_tundra
+                                    terrain = arctic
+                                }
+                            }
+                            add_province_modifier = { name = severe_homeland_drought duration = 365 }
+                        }
+                    }
+                }
+            }
+        }
+
+        ai_chance = { factor = 100 }
+    }
+}

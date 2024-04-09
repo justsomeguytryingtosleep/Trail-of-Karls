@@ -1,0 +1,7 @@
+owner = MGL
+controller = MGL
+add_core = MCK
+add_core = MGL
+trade_goods = timber
+railroad = 1
+life_rating = 36

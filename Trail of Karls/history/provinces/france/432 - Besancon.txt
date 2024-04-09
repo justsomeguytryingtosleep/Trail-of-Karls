@@ -1,0 +1,6 @@
+owner = UBR
+controller = UBR
+add_core = UBR
+trade_goods = coal
+life_rating = 32
+

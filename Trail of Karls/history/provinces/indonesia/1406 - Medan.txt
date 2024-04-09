@@ -1,0 +1,6 @@
+owner = NET
+controller = NET
+add_core = ATJ
+trade_goods = fruit
+life_rating = 38
+colonial = 1 

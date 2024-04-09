@@ -1,0 +1,7 @@
+owner = SCA
+controller = SCA
+add_core = SWE
+add_core = SCA
+trade_goods = sulphur
+terrain = boreal
+life_rating = 10

@@ -1,0 +1,7 @@
+owner = MGL
+controller = MGL
+add_core = GOL
+add_core = DAG
+trade_goods = fruit
+life_rating = 35
+

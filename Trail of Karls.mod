@@ -1,0 +1,8 @@
+name = "Trail of Karls" 
+path = "mod/Trail of Karls" 
+user_dir = "Trail of Karls" 
+replace_path = "decisions"
+replace_path = "events"
+replace_path = "history/provinces"
+replace_path = "history/countries"
+replace_path = "history/diplomacy"

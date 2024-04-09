@@ -1,0 +1,7 @@
+owner = MAT
+controller = MAT
+add_core = GAZ
+add_core = MAT
+terrain = mountain
+trade_goods = wool
+life_rating = 15

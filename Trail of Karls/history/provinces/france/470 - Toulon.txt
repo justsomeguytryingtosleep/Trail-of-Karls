@@ -1,0 +1,7 @@
+owner = LBR
+controller = LBR
+add_core = LBR
+trade_goods = silk
+life_rating = 32
+naval_base = 2
+

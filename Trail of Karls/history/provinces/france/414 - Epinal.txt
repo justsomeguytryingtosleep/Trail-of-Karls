@@ -1,0 +1,10 @@
+owner = LOR
+controller = LOR
+add_core = LOR
+trade_goods = sulphur
+life_rating = 32
+state_building = {
+    level = 1
+    building = explosives_factory
+    upgrade = yes
+}

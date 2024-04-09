@@ -1,0 +1,6 @@
+owner = LUB
+controller = LUB
+add_core = DAI
+add_core = CAM
+trade_goods = grain
+life_rating = 35

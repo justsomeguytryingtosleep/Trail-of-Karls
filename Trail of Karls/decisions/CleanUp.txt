@@ -1,0 +1,1498 @@
+political_decisions = {
+    sanctions_lifted = {
+        potential = {
+            is_disarmed = yes
+            has_country_modifier = kinda_bad_badboy
+        }
+
+        allow = { war = no }
+
+        effect = {
+            remove_country_modifier = kinda_bad_badboy
+        }
+
+        ai_will_do = { factor = 1 }
+    }
+
+    medicine_flags = {
+        potential = {
+            ai = yes
+            exists = yes
+            OR = {
+                any_greater_power = {
+                    ai = no
+                    NOT = { has_country_flag = medicine_invented }
+                    medicine = 1
+                }
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_country_flag = medicine_invented }
+                    medicine = 1
+                }
+                any_greater_power = {
+                    ai = no
+                    NOT = { has_country_flag = germs_invented }
+                    invention = germ_theory
+                }
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_country_flag = germs_invented }
+                    invention = germ_theory
+                }
+                any_greater_power = {
+                    ai = no
+                    NOT = { has_country_flag = gaslights_invented }
+                    invention = gaslights
+                }
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_country_flag = gaslights_invented }
+                    invention = gaslights
+                }
+                any_greater_power = {
+                    ai = no
+                    NOT = { has_country_flag = electricity_invented }
+                    electricity = 1
+                }
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_country_flag = electricity_invented }
+                    electricity = 1
+                }
+                AND = {
+                    NOT = { has_country_flag = medicine_invented }
+                    medicine = 1
+                }
+                AND = {
+                    NOT = { has_country_flag = germs_invented }
+                    invention = germ_theory
+                }
+                AND = {
+                    NOT = { has_country_flag = gaslights_invented }
+                    invention = gaslights
+                }
+                AND = {
+                    NOT = { has_country_flag = electricity_invented }
+                    electricity = 1
+                }
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            random_owned = {
+                limit = { owner = { NOT = { has_country_flag = medicine_invented } medicine = 1 } }
+                owner = { set_country_flag = medicine_invented }
+            }
+            random_owned = {
+                limit = { owner = { NOT = { has_country_flag = germs_invented } invention = germ_theory } }
+                owner = { set_country_flag = germs_invented }
+            }
+            random_owned = {
+                limit = { owner = { NOT = { has_country_flag = gaslights_invented } invention = gaslights } }
+                owner = { set_country_flag = gaslights_invented }
+            }
+            random_owned = {
+                limit = { owner = { NOT = { has_country_flag = electricity_invented } electricity = 1 } }
+                owner = { set_country_flag = electricity_invented }
+            }
+            any_country = {
+                limit = { NOT = { has_country_flag = medicine_invented } medicine = 1 }
+                set_country_flag = medicine_invented
+            }
+            any_country = {
+                limit = { NOT = { has_country_flag = germs_invented } invention = germ_theory }
+                set_country_flag = germs_invented
+            }
+            any_country = {
+                limit = { NOT = { has_country_flag = gaslights_invented } invention = gaslights }
+                set_country_flag = gaslights_invented
+            }
+            any_country = {
+                limit = { NOT = { has_country_flag = electricity_invented } electricity = 1 }
+                set_country_flag = electricity_invented
+            }
+        }
+
+        ai_will_do = { factor = 1 }
+    }
+
+    clean_up_crisis_tension = {
+        potential = {
+            ai = yes
+            exists = yes
+            OR = {
+                NOT = { has_global_flag = revolution_n_counter_researched }
+                is_vassal = yes
+            }
+            OR = {
+                any_owned_province = {
+                    state_scope = { flashpoint_tension = 10 }
+                    owner = {
+                        OR = {
+                            NOT = { has_global_flag = revolution_n_counter_researched }
+                            is_vassal = yes
+                        }
+                    }
+                }
+                any_owned_province = {
+                    any_neighbor_province = {
+                        empty = yes
+                        state_scope = { flashpoint_tension = 10 }
+                    }
+                    owner = { NOT = { has_global_flag = revolution_n_counter_researched } }
+                }
+                any_greater_power = {
+                    ai = no
+                    NOT = { has_global_flag = revolution_n_counter_researched }
+                    any_owned_province = {
+                        state_scope = { flashpoint_tension = 10 }
+                    }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_global_flag = revolution_n_counter_researched }
+                    any_owned_province = {
+                        state_scope = { flashpoint_tension = 10 }
+                    }
+                }
+            }
+        }
+        allow = { }
+
+        effect = {
+            any_country = {
+                limit = {
+                    OR = {
+                        NOT = { has_global_flag = revolution_n_counter_researched }
+                        is_vassal = yes
+                    }
+                }
+                any_state  = { flashpoint_tension = -100 }
+            }
+            any_owned = {
+                limit = {
+                    owner = {
+                        OR = {
+                            NOT = { has_global_flag = revolution_n_counter_researched }
+                            is_vassal = yes
+                        }
+                    }
+                }
+                owner = {
+                    any_state  = { flashpoint_tension = -100 }
+                }
+            }
+            any_owned = {
+                limit = { owner = { NOT = { has_global_flag = revolution_n_counter_researched } } }
+                any_neighbor_province = {
+                    limit = {
+                        empty = yes
+                        state_scope = { flashpoint_tension = 10 }
+                    }
+                    state_scope = { flashpoint_tension = -100 }
+                }
+            }
+        }
+    }
+
+    native_assimilation_act_ended = {
+        picture = native_assimilation_act
+        potential = {
+            ai = yes
+            exists = yes
+            OR = {
+                AND = {
+                    has_country_flag = native_assimilation_enacted
+                    NOT = { has_country_modifier = native_assimilation_act_policy }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    has_country_flag = native_assimilation_enacted
+                    NOT = { has_country_modifier = native_assimilation_act_policy }
+                }
+                any_greater_power = {
+                    ai = no
+                    has_country_flag = native_assimilation_enacted
+                    NOT = { has_country_modifier = native_assimilation_act_policy }
+                }
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            random_owned = {
+                limit = {
+                    owner = {
+                        has_country_flag = native_assimilation_enacted
+                        NOT = { has_country_modifier = native_assimilation_act_policy }
+                    }
+                }
+                owner = { clr_country_flag = native_assimilation_enacted }
+            }
+            any_country = {
+                limit = {
+                    has_country_flag = native_assimilation_enacted
+                    NOT = { has_country_modifier = native_assimilation_act_policy }
+                }
+                clr_country_flag = native_assimilation_enacted
+            }
+        }
+
+        ai_will_do = { factor = 1 }
+    }
+
+    monthly_substate_payment = {
+        potential = {
+            ai = yes
+            NOT = { has_country_flag = exempt_from_vassal_contribution }
+            OR = {
+                is_substate = yes
+                AND = {
+                    is_vassal = yes
+                    is_substate = no
+                    total_pops = 250000
+                }
+            }
+        }
+
+        allow = {
+            NOT = { has_country_modifier = monthly_payment_made }
+            OR = {
+                AND = {
+                    civilized = yes
+                    money = 1000
+                    NOT = { total_pops = 750000 }
+                }
+                AND = {
+                    civilized = yes
+                    money = 1500
+                    total_pops = 750000
+                    NOT = { total_pops = 1000000 }
+                }
+                AND = {
+                    civilized = yes
+                    money = 2000
+                    total_pops = 1000000
+                    NOT = { total_pops = 1250000 }
+                }
+                AND = {
+                    civilized = yes
+                    money = 2500
+                    total_pops = 1250000
+                    NOT = { total_pops = 1500000 }
+                }
+                AND = {
+                    civilized = yes
+                    money = 3000
+                    total_pops = 1500000
+                    NOT = { total_pops = 1750000 }
+                }
+                AND = {
+                    civilized = yes
+                    money = 4000
+                    total_pops = 1750000
+                    NOT = { total_pops = 2000000 }
+                }
+                AND = {
+                    money = 5000
+                    total_pops = 2000000
+                    NOT = { total_pops = 2250000 }
+                }
+                AND = {
+                    money = 6000
+                    total_pops = 2250000
+                    NOT = { total_pops = 2500000 }
+                }
+                AND = {
+                    money = 7000
+                    total_pops = 2500000
+                }
+                AND = {
+                    civilized = no
+                    money = 1000
+                    NOT = { total_pops = 2000000 }
+                }
+            }
+        }
+
+        effect = {
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = yes
+                        NOT = { total_pops = 750000 } }
+                    }
+                owner = {
+                    treasury = -1000
+                    overlord = { treasury = 1000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = yes
+                        total_pops = 750000
+                        NOT = { total_pops = 1000000 }
+                    }
+                }
+                owner = {
+                    treasury = -1500
+                    overlord = { treasury = 1500 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = yes
+                        total_pops = 1000000
+                        NOT = { total_pops = 1250000 }
+                    }
+                }
+                owner = {
+                    treasury = -2000
+                    overlord = { treasury = 2000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = yes
+                        total_pops = 1250000
+                        NOT = { total_pops = 1500000 }
+                    }
+                }
+                owner = {
+                    treasury = -2500
+                    overlord = { treasury = 2500 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = yes
+                        total_pops = 1500000
+                        NOT = { total_pops = 1750000 }
+                    }
+                }
+                owner = {
+                    treasury = -3000
+                    overlord = { treasury = 3000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = yes
+                        total_pops = 1750000
+                        NOT = { total_pops = 2000000 }
+                    }
+                }
+                owner = {
+                    treasury = -4000
+                    overlord = { treasury = 4000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        total_pops = 2000000
+                        NOT = { total_pops = 2250000 }
+                    }
+                }
+                owner = {
+                    treasury = -5000
+                    overlord = { treasury = 5000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        total_pops = 2250000
+                        NOT = { total_pops = 2500000 }
+                    }
+                }
+                owner = {
+                    treasury = -6000
+                    overlord = { treasury = 6000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = { total_pops = 2500000 }
+                }
+                owner = {
+                    treasury = -7000
+                    overlord = { treasury = 7000 }
+                }
+            }
+
+            random_owned = {
+                limit = {
+                    owner = {
+                        civilized = no
+                        NOT = { total_pops = 2000000 }
+                    }
+                }
+                owner = {
+                    treasury = -1000
+                    overlord = { treasury = 1000 }
+                }
+            }
+
+            random_owned = { limit = { owner = { is_substate = yes } } owner = { add_country_modifier = { name = monthly_payment_made duration = 150 } } }
+
+            random_owned = {
+                limit = { owner = { is_vassal = yes is_substate = no } } owner = { add_country_modifier = { name = monthly_payment_made duration = 180 } }
+            }
+
+            random_owned = {
+                limit = { owner = { has_country_flag = counting_payments } }
+                owner = {
+                    change_variable = { which = counting_payments_variable value = 1 }
+                }
+            }
+            random_owned = {
+                limit = { owner = { NOT = { has_country_flag = counting_payments } } }
+                owner = {
+                    set_variable = { which = counting_payments_variable value = 0 }
+                    set_country_flag = counting_payments
+                }
+            }
+        }
+
+        ai_will_do = { factor = 1 }
+    }
+
+    player_owes_money = {
+        potential = {
+            ai = yes
+            OR = {
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_country_flag = exempt_from_vassal_contribution }
+                    NOT = { has_country_modifier = monthly_payment_made }
+                    OR = {
+                        is_substate = yes
+                        AND = {
+                            is_vassal = yes
+                            is_substate = no
+                            total_pops = 250000
+                        }
+                    }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    check_variable = { which = owed_cash_money value = 1 }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    OR = {
+                        AND = {
+                            steamer_convoy = 2
+                            check_variable = { which = owed_steamers value = 1 }
+                        }
+                        AND = {
+                            artillery = 2
+                            check_variable = { which = owed_artillery value = 1 }
+                        }
+                        AND = {
+                            canned_food = 2
+                            check_variable = { which = owed_canned_food value = 1 }
+                        }
+                        AND = {
+                            small_arms = 2
+                            check_variable = { which = owed_small_arms value = 1 }
+                        }
+                        AND = {
+                            ammunition = 2
+                            check_variable = { which = owed_ammunition value = 1 }
+                        }
+                    }
+                }
+            }
+        }
+
+        allow = {
+            war = no
+            OR = {
+                any_neighbor_country = {
+                    ai = no
+                    NOT = { has_country_flag = exempt_from_vassal_contribution }
+                    NOT = { has_country_modifier = monthly_payment_made }
+                    OR = {
+                        is_substate = yes
+                        AND = {
+                            is_vassal = yes
+                            is_substate = no
+                            total_pops = 250000
+                        }
+                    }
+                    OR = {
+                        AND = {
+                            money = 1500
+                            NOT = { total_pops = 750000 }
+                        }
+                        AND = {
+                            money = 2250
+                            total_pops = 750000
+                            NOT = { total_pops = 100000 }
+                        }
+                        AND = {
+                            money = 3000
+                            total_pops = 1000000
+                            NOT = { total_pops = 1250000 }
+                        }
+                        AND = {
+                            money = 3750
+                            total_pops = 1250000
+                            NOT = { total_pops = 1500000 }
+                        }
+                        AND = {
+                            money = 4500
+                            total_pops = 1500000
+                            NOT = { total_pops = 1750000 }
+                        }
+                        AND = {
+                            money = 5250
+                            total_pops = 1750000
+                            NOT = { total_pops = 2000000 }
+                        }
+                        AND = {
+                            money = 6000
+                            total_pops = 2000000
+                            NOT = { total_pops = 2250000 }
+                        }
+                        AND = {
+                            money = 6750
+                            total_pops = 2250000
+                            NOT = { total_pops = 2500000 }
+                        }
+                        AND = {
+                            money = 7500
+                            total_pops = 2500000
+                        }
+                    }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    money = 10000
+                    check_variable = { which = owed_cash_money value = 1 }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    OR = {
+                        AND = {
+                            steamer_convoy = 2
+                            check_variable = { which = owed_steamers value = 1 }
+                        }
+                        AND = {
+                            artillery = 2
+                            check_variable = { which = owed_artillery value = 1 }
+                        }
+                        AND = {
+                            canned_food = 2
+                            check_variable = { which = owed_canned_food value = 1 }
+                        }
+                        AND = {
+                            small_arms = 2
+                            check_variable = { which = owed_small_arms value = 1 }
+                        }
+                        AND = {
+                            ammunition = 2
+                            check_variable = { which = owed_ammunition value = 1 }
+                        }
+                    }
+                }
+            }
+        }
+
+        effect = {
+            any_country = {
+                limit = {
+                    exists = yes
+                    neighbour = THIS
+                    ai = no
+                    NOT = { has_country_flag = exempt_from_vassal_contribution }
+                    NOT = { has_country_modifier = monthly_payment_made }
+                    OR = {
+                        is_substate = yes
+                        AND = {
+                            is_vassal = yes
+                            is_substate = no
+                            total_pops = 250000
+                        }
+                    }
+                }
+                random_owned = {
+                    limit = { owner = { NOT = { total_pops = 750000 } } }
+                    owner = {
+                        treasury = -1500
+                        overlord = { treasury = 1500 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 750000 NOT = { total_pops = 1000000 } } }
+                    owner = {
+                        treasury = -2250
+                        overlord = { treasury = 2250 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 1000000 NOT = { total_pops = 1250000 } } }
+                    owner = {
+                        treasury = -3000
+                        overlord = { treasury = 3000 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 1250000 NOT = { total_pops = 1500000 } } }
+                    owner = {
+                        treasury = -3750
+                        overlord = { treasury = 3750 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 1500000 NOT = { total_pops = 1750000 } } }
+                    owner = {
+                        treasury = -4500
+                        overlord = { treasury = 4500 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 1750000 NOT = { total_pops = 2000000 } } }
+                    owner = {
+                        treasury = -5250
+                        overlord = { treasury = 5250 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 2000000 NOT = { total_pops = 2250000 } } }
+                    owner = {
+                        treasury = -6000
+                        overlord = { treasury = 6000 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 2250000 NOT = { total_pops = 2500000 } } }
+                    owner = {
+                        treasury = -6750
+                        overlord = { treasury = 6750 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { total_pops = 2500000 } }
+                    owner = {
+                        treasury = -7500
+                        overlord = { treasury = 7500 }
+                    }
+                }
+
+                random_owned = {
+                    limit = { owner = { is_substate = yes } }
+                    owner = { add_country_modifier = { name = monthly_payment_made duration = 150 } }
+                }
+                random_owned = {
+                    limit = { owner = { is_vassal = yes is_substate = no } }
+                    owner = { add_country_modifier = { name = monthly_payment_made duration = 180 } }
+                }
+            }
+
+            any_country = {
+                limit = {
+                    exists = yes
+                    ai = no
+                    neighbour = THIS
+                    money = 1000000
+                    check_variable = { which = owed_cash_money value = 1000 }
+                }
+                treasury = -1000000
+                change_variable = { which = owed_cash_money value = -1000 }
+            }
+
+            any_country = {
+                limit = {
+                    exists = yes
+                    ai = no
+                    neighbour = THIS
+                    money = 500000
+                    check_variable = { which = owed_cash_money value = 500 }
+                }
+                treasury = -500000
+                change_variable = { which = owed_cash_money value = -500 }
+            }
+
+            any_country = {
+                limit = {
+                    exists = yes
+                    ai = no
+                    neighbour = THIS
+                    money = 100000
+                    check_variable = { which = owed_cash_money value = 100 }
+                }
+                treasury = -100000
+                change_variable = { which = owed_cash_money value = -100 }
+            }
+
+            any_country = {
+                limit = {
+                    exists = yes
+                    ai = no
+                    neighbour = THIS
+                    money = 50000
+                    check_variable = { which = owed_cash_money value = 49 }
+                }
+                treasury = -50000
+                change_variable = { which = owed_cash_money value = -50 }
+            }
+
+            any_country = {
+                limit = {
+                    exists = yes
+                    ai = no
+                    neighbour = THIS
+                    money = 10000
+                    check_variable = { which = owed_cash_money value = 1 }
+                }
+                treasury = -10000
+                change_variable = { which = owed_cash_money value = -10 }
+            }
+
+            any_country = {
+                limit = {
+                    exists = yes
+                    ai = no
+                    neighbour = THIS
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            ammunition = 1
+                            check_variable = { which = owed_ammunition value = 1 }
+                        }
+                    }
+                    owner = {
+                        ammunition = -1
+                        change_variable = { which = owed_ammunition value = -1 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            small_arms = 1
+                            check_variable = { which = owed_small_arms value = 1 }
+                        }
+                    }
+                    owner = {
+                        small_arms = -1
+                        change_variable = { which = owed_small_arms value = -1 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            steamer_convoy = 4
+                            check_variable = { which = owed_steamers value = 4 }
+                        }
+                    }
+                    owner = {
+                        steamer_convoy = -4
+                        change_variable = { which = owed_steamers value = -4 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            steamer_convoy = 4
+                            check_variable = { which = owed_steamers value = 4 }
+                        }
+                    }
+                    owner = {
+                        steamer_convoy = -4
+                        change_variable = { which = owed_steamers value = -4 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            steamer_convoy = 2
+                            check_variable = { which = owed_steamers value = 1 }
+                        }
+                    }
+                    owner = {
+                        steamer_convoy = -2
+                        change_variable = { which = owed_steamers value = -2 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            artillery = 4
+                            check_variable = { which = owed_artillery value = 4 }
+                        }
+                    }
+                    owner = {
+                        artillery = -4
+                        change_variable = { which = owed_artillery value = -4 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            artillery = 4
+                            check_variable = { which = owed_artillery value = 4 }
+                        }
+                    }
+                    owner = {
+                        artillery = -4
+                        change_variable = { which = owed_artillery value = -4 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            artillery = 2
+                            check_variable = { which = owed_artillery value = 1 }
+                        }
+                    }
+                    owner = {
+                        artillery = -2
+                        change_variable = { which = owed_artillery value = -2 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            canned_food = 4
+                            check_variable = { which = owed_canned_food value = 4 }
+                        }
+                    }
+                    owner = {
+                        canned_food = -4
+                        change_variable = { which = owed_canned_food value = -4 }
+                    }
+                }
+
+                random_owned = {
+                    limit = {
+                        owner = {
+                            canned_food = 2
+                            check_variable = { which = owed_canned_food value = 1 }
+                        }
+                    }
+                    owner = {
+                        canned_food = -2
+                        change_variable = { which = owed_canned_food value = -2 }
+                    }
+                }
+            }
+        }
+        ai_will_do = { factor = 1 }
+    }
+
+    silver_mines_without_modifier = {
+        potential = {
+            ai = yes
+            any_neighbor_country = {
+                OR = {
+                    AND = {
+                        owns = 2293
+                        2293 = { trade_goods = precious_metal NOT = { has_province_modifier = silver_mine } }
+                    }
+                    AND = {
+                        owns = 2296
+                        2296 = { trade_goods = precious_metal NOT = { has_province_modifier = silver_mine } }
+                    }
+                    AND = {
+                        owns = 312
+                        312 = { trade_goods = precious_metal NOT = { has_province_modifier = silver_mine } }
+                    }
+                    AND = {
+                        owns = 2322
+                        2322 = { trade_goods = precious_metal NOT = { has_province_modifier = silver_mine } }
+                    }
+                    AND = {
+                        owns = 2323
+                        2323 = { trade_goods = precious_metal NOT = { has_province_modifier = silver_mine } }
+                    }
+                }
+            }
+        }
+
+        allow = {
+
+        }
+
+        effect = {
+            any_neighbor_country = {
+                any_owned = {
+                    limit = {
+                        trade_goods = precious_metal
+                        NOT = { has_province_modifier = silver_mine }
+                        OR = {
+                            province_id = 2293
+                            province_id = 2296
+                            province_id = 312
+                            province_id = 2322
+                            province_id = 2323
+                        }
+                    }
+                    add_province_modifier = { name = silver_mine duration = -1 }
+                }
+            }
+        }
+
+        ai_will_do = { factor = 1 }
+    }
+
+#Cleaning after international zones
+    cleaning_after_international_zones = {
+        picture = vassal_payment
+        potential = {
+            year = 1890
+            ai = yes
+            OR = {
+                AND = {
+                    OR = {
+                        has_country_modifier = international_zone_modifier
+                        has_country_flag = international_zone
+                    }
+                    OR = {
+                        number_of_states = 2
+                        government = proletarian_dictatorship
+                        government = bourgeois_dictatorship
+                        government = fascist_dictatorship
+                    }
+                }
+                any_neighbor_country = {
+                    ai = no
+                    OR = {
+                        has_country_modifier = international_zone_modifier
+                        has_country_flag = international_zone
+                    }
+                    OR = {
+                        number_of_states = 2
+                        government = proletarian_dictatorship
+                        government = bourgeois_dictatorship
+                        government = fascist_dictatorship
+                    }
+                }
+                any_greater_power = {
+                    ai = no
+                    OR = {
+                        has_country_modifier = international_zone_modifier
+                        has_country_flag = international_zone
+                    }
+                    OR = {
+                        number_of_states = 2
+                        government = proletarian_dictatorship
+                        government = bourgeois_dictatorship
+                        government = fascist_dictatorship
+                    }
+                }
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            remove_country_modifier = international_zone_modifier
+            clr_country_flag = international_zone
+            any_neighbor_country = {
+                limit = {
+                    ai = no
+                    OR = {
+                        has_country_modifier = international_zone_modifier
+                        has_country_flag = international_zone
+                    }
+                    OR = {
+                        number_of_states = 2
+                        government = proletarian_dictatorship
+                        government = bourgeois_dictatorship
+                        government = fascist_dictatorship
+                    }
+                }
+                remove_country_modifier = international_zone_modifier
+                clr_country_flag = international_zone
+            }
+            any_greater_power = {
+                limit = {
+                    ai = no
+                    OR = {
+                        has_country_modifier = international_zone_modifier
+                        has_country_flag = international_zone
+                    }
+                    OR = {
+                        number_of_states = 2
+                        government = proletarian_dictatorship
+                        government = bourgeois_dictatorship
+                        government = fascist_dictatorship
+                    }
+                }
+                remove_country_modifier = international_zone_modifier
+                clr_country_flag = international_zone
+            }
+        }
+
+        ai_will_do = { factor = 1 }
+    }
+
+# handling insolvent AI countries that cannot borrow money
+    insolvent_ai_cant_borrow = {
+        potential = {
+            ai = yes
+            civilized = yes
+            OR = {
+                has_country_modifier = in_bankrupcy
+                has_country_modifier = generalised_debt_default
+                AND = {
+                    civilized = no
+                    NOT = { finance_reform = finance_reform_two }
+                }
+            }
+            NOT = {
+                money = 100
+                has_country_modifier = emergency_tax_measures1
+                has_country_modifier = emergency_tax_measures2
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            set_country_flag = emergency_tax_measures
+            add_country_modifier = {
+                name = emergency_tax_measures1
+                duration = 365
+            }
+        }
+        ai_will_do = { factor = 1 }
+    }
+
+    insolvent_ai_still_in_debt = {
+        potential = {
+            ai = yes
+            civilized = yes
+            has_country_flag = emergency_tax_measures
+            NOT = {
+                money = 100
+                has_country_modifier = emergency_tax_measures1
+                has_country_modifier = emergency_tax_measures2
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            add_country_modifier = {
+                name = emergency_tax_measures2
+                duration = -1
+            }
+        }
+        ai_will_do = { factor = 1 }
+    }
+
+    insolvent_ai_debt_gone = {
+        potential = {
+            ai = yes
+            OR = {
+                has_country_flag = emergency_tax_measures
+                has_country_modifier = emergency_tax_measures2
+            }
+            money = 5000
+        }
+
+        allow = {
+        }
+
+        effect = {
+            clr_country_flag = emergency_tax_measures
+            remove_country_modifier = emergency_tax_measures1
+            remove_country_modifier = emergency_tax_measures2
+        }
+        ai_will_do = { factor = 1 }
+    }
+
+    election_start_player = {
+        potential = {
+            exists = yes
+            ai = yes
+            OR = {
+                any_neighbor_country = {
+                    election = yes
+                    ai = no
+                    NOT = { has_country_flag = election_started }
+                    OR = {
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                }
+                any_greater_power = {
+                    election = yes
+                    ai = no
+                    NOT = { has_country_flag = election_started }
+                    OR = {
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                }
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            any_country = {
+                limit = {
+                    ai = no
+                    election = yes
+                    NOT = { has_country_flag = election_started }
+                    OR = {
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                    OR = {
+                        neighbour = THIS
+                        is_greater_power = yes
+                    }
+                }
+                set_country_flag = election_started
+            }
+        }
+        ai_will_do = { factor = 1 }
+    }
+
+    election_end_player = {
+        potential = {
+            exists = yes
+            ai = yes
+            OR = {
+                any_neighbor_country = {
+                    election = no
+                    ai = no
+                    has_country_flag = election_started
+                }
+                any_greater_power = {
+                    election = no
+                    ai = no
+                    has_country_flag = election_started
+                }
+                any_neighbor_country = {
+                    NOT = {
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                    OR = {
+                        has_country_flag = election_started
+                        has_country_flag = conservative_party_in_power
+                        has_country_flag = liberal_party_in_power
+                        has_country_flag = reactionary_party_in_power
+                        has_country_flag = socialist_party_in_power
+                        has_country_flag = communist_party_in_power
+                        has_country_flag = fascist_party_in_power
+                        has_country_flag = anarcho_liberal_party_in_power
+                    }
+                }
+            }
+        }
+
+        allow = {
+        }
+
+        effect = {
+            any_country = {
+                limit = {
+                    NOT = {
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                    OR = {
+                        has_country_flag = election_started
+                        has_country_flag = conservative_party_in_power
+                        has_country_flag = liberal_party_in_power
+                        has_country_flag = reactionary_party_in_power
+                        has_country_flag = socialist_party_in_power
+                        has_country_flag = communist_party_in_power
+                        has_country_flag = fascist_party_in_power
+                        has_country_flag = anarcho_liberal_party_in_power
+                    }
+                }
+                clr_country_flag = election_started
+                clr_country_flag = conservative_party_in_power
+                clr_country_flag = liberal_party_in_power
+                clr_country_flag = reactionary_party_in_power
+                clr_country_flag = socialist_party_in_power
+                clr_country_flag = communist_party_in_power
+                clr_country_flag = fascist_party_in_power
+                clr_country_flag = anarcho_liberal_party_in_power
+            }
+
+            any_country = {
+                limit = {
+                    ai = no
+                    election = no
+                    has_country_flag = election_started
+                    OR = {
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                    OR = {
+                        neighbour = THIS
+                        is_greater_power = yes
+                    }
+                }
+                clr_country_flag = election_started
+                clr_country_flag = conservative_party_in_power
+                clr_country_flag = liberal_party_in_power
+                clr_country_flag = reactionary_party_in_power
+                clr_country_flag = socialist_party_in_power
+                clr_country_flag = communist_party_in_power
+                clr_country_flag = fascist_party_in_power
+                clr_country_flag = anarcho_liberal_party_in_power
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = conservative } }
+                    owner = { set_country_flag = conservative_party_in_power }
+                }
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = liberal } }
+                    owner = { set_country_flag = liberal_party_in_power }
+                }
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = reactionary } }
+                    owner = { set_country_flag = reactionary_party_in_power }
+                }
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = socialist } }
+                    owner = { set_country_flag = socialist_party_in_power }
+                }
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = communist } }
+                    owner = { set_country_flag = communist_party_in_power }
+                }
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = fascist } }
+                    owner = { set_country_flag = fascist_party_in_power }
+                }
+                random_owned = {
+                    limit = { owner = { ruling_party_ideology = anarcho_liberal } }
+                    owner = { set_country_flag = anarcho_liberal_party_in_power }
+                }
+            }
+        }
+        ai_will_do = { factor = 1 }
+    }
+
+    annex_to_master_cleanup = {
+        alert = no
+        potential = {
+            ai = yes
+            has_country_flag = annex_to_master
+            is_vassal = yes
+            OR = {
+                AND = {
+                    tag = HUN
+                    overlord = { tag = AUS }
+                }
+                AND = {
+                    is_culture_group = italian
+                    overlord = { is_culture_group = italian }
+                }
+                AND = {
+                    is_culture_group = pan_romanian
+                    overlord = { is_culture_group = pan_romanian }
+                }
+                AND = {
+                    primary_culture = japanese
+                    overlord = { primary_culture = japanese }
+                }
+                overlord = { primary_culture = spanish }
+            }
+        }
+
+        allow = {
+            war = no
+            is_mobilised = no
+        }
+
+        effect = {
+            clr_country_flag = annex_to_master
+            remove_country_modifier = neutrality_modifier
+            political_reform = open_borders
+            random_owned = {
+                limit = { has_country_flag = uncivilize_on_conquest }
+                owner = {
+                    civilized = no
+                }
+            }
+            overlord = { inherit = THIS }
+            random_owned = {
+                limit = { has_country_flag = uncivilize_on_conquest }
+                owner = {
+                    civilized = yes
+                    clr_country_flag = uncivilize_on_conquest
+                }
+            }
+        }
+    }
+
+    annex_to_master_not_vassal_cleanup = {
+        alert = no
+        potential = {
+            ai = yes
+            has_country_flag = annex_to_master
+            is_vassal = no
+        }
+
+        allow = {
+            war = no
+            is_mobilised = no
+        }
+
+        effect = {
+            clr_country_flag = annex_to_master
+        }
+    }
+
+    transfer_vassalage = {
+        alert = yes
+        potential = {
+            ai = yes
+            has_country_flag = transfer_to_new_overlord
+            war = no
+        }
+
+        allow = {
+
+        }
+
+        effect = {
+            random_owned = {
+                limit = { owner = { is_vassal = yes } }
+                owner = { clr_country_flag = transfer_to_new_overlord }
+            }
+
+            random_owned = {
+                limit = { owner = { is_vassal = no } }
+                owner = {
+                    clr_country_flag = transfer_to_new_overlord
+                    any_country = {
+                        limit = {
+                            exists = yes
+                            has_country_flag = new_overlord
+                            truce_with = THIS
+                            OR = {
+                                is_sphere_leader_of = THIS
+                                THIS = { part_of_sphere = no }
+                            }
+                        }
+                        clr_country_flag = new_overlord
+                        country_event = 6016824
+                    }
+                }
+            }
+        }
+    }
+
+
+    partisan_flip_to_original_owner = {
+        alert = no
+        potential = {
+            ai = yes
+            OR = {
+                any_owned_province = {
+                    controlled_by = REB
+                    has_province_modifier = partisan_occupation
+                }
+                any_neighbor_country = {
+                    ai = no
+                    any_owned_province = {
+                        controlled_by = REB
+                        has_province_modifier = partisan_occupation
+                        province_control_days = 90
+                    }
+                }
+                any_greater_power = {
+                    ai = no
+                    any_owned_province = {
+                        controlled_by = REB
+                        has_province_modifier = partisan_occupation
+                        province_control_days = 90
+                    }
+                }
+            }
+        }
+
+        allow = {
+
+        }
+
+        effect = {
+            any_owned = {
+                limit = {
+                    controlled_by = REB
+                    has_province_modifier = partisan_occupation
+                }
+                change_controller = THIS
+                remove_province_modifier = partisan_occupation
+                any_pop = { militancy = -4 }
+            }
+            any_neighbor_country = {
+                limit = { ai = no }
+                any_owned = {
+                    limit = {
+                        controlled_by = REB
+                        has_province_modifier = partisan_occupation
+                    }
+                    change_controller = THIS
+                    remove_province_modifier = partisan_occupation
+                    any_pop = { militancy = -4 }
+                }
+            }
+            any_greater_power = {
+                limit = { ai = no }
+                any_owned = {
+                    limit = {
+                        controlled_by = REB
+                        has_province_modifier = partisan_occupation
+                    }
+                    change_controller = THIS
+                    remove_province_modifier = partisan_occupation
+                    any_pop = { militancy = -4 }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+owner= TIR
+controller = TIR
+add_core = TIR
+trade_goods = fruit
+life_rating = 40
+naval_base = 1
+
+

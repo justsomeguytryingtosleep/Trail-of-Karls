@@ -1,0 +1,6 @@
+owner = MAO
+controller = MAO
+add_core = MAO
+add_core = CHI
+trade_goods = grain
+life_rating = 35

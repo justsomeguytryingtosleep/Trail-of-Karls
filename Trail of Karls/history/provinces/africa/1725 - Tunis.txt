@@ -1,0 +1,18 @@
+owner = ADL
+controller = ADL
+add_core = ADL
+add_core = TUN
+trade_goods = grain
+life_rating = 40
+naval_base = 2
+fort = 1
+state_building = {
+	level = 1
+	building = steel_factory
+	upgrade = yes
+}
+state_building = {
+    level = 1
+    building = clipper_shipyard
+    upgrade = yes
+}

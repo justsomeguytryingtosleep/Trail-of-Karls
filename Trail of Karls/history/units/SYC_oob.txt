@@ -1,0 +1,85 @@
+leader = {
+    name = "Grand Admiral Alexandros Papadopoulos"
+    date = 1827.1.1
+    type = sea
+    background = merciless
+    personality = adventurer
+}
+
+leader = {
+    name = "Field Marshall Theodoros Voulgaris"
+    date = 1829.1.1
+    type = land
+    background = stout
+    personality = cartographer
+}
+
+army = {
+    name = "Brentesion Spartans"
+    location = 758
+
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 758
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 756
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 761
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 760
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 759
+    }
+    regiment = {
+        name = "French Artillery Brigade"
+        type = artillery
+        home = 854
+    }
+    regiment = {
+        name = "French Artillery Brigade"
+        type = artillery
+        home = 854
+    }
+
+}
+navy = {
+    location = 756
+
+    ship = {
+        name = "Manowar"
+        type = manowar
+    }
+    ship = {
+        name = "Manowar"
+        type = manowar
+    }
+    ship = {
+        name = "Manowar"
+        type = manowar
+    }
+    ship = {
+        name = "Frigate"
+        type = frigate
+    }
+    ship = {
+        name = "Frigate"
+        type = frigate
+    }
+    ship = {
+        name = "Frigate"
+        type = frigate
+    }
+}

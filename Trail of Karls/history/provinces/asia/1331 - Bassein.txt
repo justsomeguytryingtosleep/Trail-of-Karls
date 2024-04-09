@@ -1,0 +1,6 @@
+owner = SCO
+controller = SCO
+add_core = BUR
+trade_goods = fish
+colonial = 1
+life_rating = 35

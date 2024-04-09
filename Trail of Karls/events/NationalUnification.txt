@@ -1,0 +1,645 @@
+# Event to Inherit
+country_event = {
+    id = 11101
+    title = "EVTNAME11101"
+    desc = "EVTDESC11101"
+    picture = "Celebration"
+
+    is_triggered_only = yes
+
+    option = {
+        name = "EVTOPTA11101"
+        any_country = {
+            limit = {
+                OR = {
+                    is_sphere_leader_of = THIS
+                    is_our_vassal = THIS
+                }
+                NOT = { tag = FROM }
+            }
+            relation = {
+                who = FROM
+                value = -25
+            }
+            casus_belli = {
+                target = FROM
+                type = humiliate
+                months = 24
+            }
+            casus_belli = {
+                target = FROM
+                type = free_peoples
+                months = 24
+            }
+        }
+        random_owned = {
+            limit = {
+                owner = {
+                    NOT = { tag = AUS }
+                    NOT = { tag = MOL }
+                    NOT = { tag = SIE }
+                    NOT = { tag = LUX }
+                    NOT = { is_culture_group = south_asian }
+                    NOT = { is_culture_group = scandinavian }
+                    NOT = { is_culture_group = arab }
+                }
+            }
+            owner = {
+                all_core = { remove_core = THIS }
+            }
+        }
+
+        any_country = {
+            limit = {
+                exists = yes
+                alliance_with = THIS
+            }
+            leave_alliance = THIS
+        }
+
+        any_country = {
+            limit = {
+                exists = yes
+                military_access = THIS
+            }
+            end_military_access = THIS
+        }
+
+        any_country = {
+            limit = {
+                exists = yes
+                vassal_of = THIS
+                any_owned_province = { is_core = FROM }
+            }
+            any_owned = {
+                limit = { is_core = FROM }
+                add_province_modifier = { name = core_when_done duration = 30 }
+            }
+        }
+
+        random_owned = {
+            limit = { owner = { NOT = { num_of_vassals = 1 } } }
+            owner = { FROM = { inherit = THIS } }
+        }
+
+        random_owned = {
+            limit = { owner = { num_of_vassals = 1 } }
+            owner = {
+                FROM = { country_event =  6016822 }
+            }
+        }
+
+        ai_chance = {
+            factor = 75
+            modifier = {
+                factor = 0
+                is_greater_power = yes
+                NOT = { has_country_flag = wants_to_unify }
+            }
+            modifier = {
+                factor = 2
+                OR = {
+                    alliance_with = FROM
+                    relation = { who = FROM value = 100 }
+                }
+            }
+            modifier = {
+                factor = 0.1
+                government = fascist_dictatorship
+                FROM = { government = proletarian_dictatorship }
+            }
+            modifier = {
+                factor = 0.1
+                government = proletarian_dictatorship
+                FROM = { government = fascist_dictatorship }
+            }
+        }
+    }
+
+    option = {
+        name = "EVTOPTB11101"
+        clr_country_flag = wants_to_unify
+        prestige = 1
+        leave_alliance = FROM
+        relation = {
+            who = FROM
+            value = -200
+        }
+        FROM = {
+            diplomatic_influence = {
+                who = THIS
+                value = -200
+            }
+        }
+        any_country = {
+            limit = {
+                exists = yes
+                vassal_of = THIS
+                in_sphere = FROM
+            }
+            leave_alliance = FROM
+            end_military_access = FROM
+            relation = { who = FROM value = -200 }
+            set_country_flag = failed_unification_remove_from_sphere
+        }
+        any_pop = {
+            limit = { is_primary_culture = yes }
+            militancy = 3
+            consciousness = 2
+        }
+        ai_chance = {
+            factor = 25
+            modifier = {
+                factor = 0
+                has_country_flag = wants_to_unify
+            }
+            modifier = {
+                factor = 0
+                vassal_of = FROM
+            }
+            modifier = {
+                factor = 0.75
+                is_secondary_power = no
+            }
+            modifier = {
+                factor = 0.75
+                part_of_sphere = no
+            }
+            modifier = {
+                factor = 1.5
+                truce_with = FROM
+            }
+            modifier = {
+                factor = 1.5
+                NOT = {
+                    relation = { who = FROM value = 0 }
+                }
+            }
+            modifier = {
+                factor = 0.25
+                in_sphere = FROM
+            }
+            modifier = {
+                factor = 0.25
+                government = fascist_dictatorship
+                FROM = { government = fascist_dictatorship }
+            }
+            modifier = {
+                factor = 0.25
+                government = proletarian_dictatorship
+                FROM = { government = proletarian_dictatorship }
+            }
+            modifier = {
+                factor = 0.25
+                OR = {
+                    government = democracy
+                    government = prussian_constitutionalism
+                    government = hms_government
+                }
+                FROM = {
+                    OR = {
+                        government = democracy
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Removing cores for non-existing countries
+country_event = {
+    id = 11105
+    title = "EVTNAME11105"
+    desc = "EVTDESC11105"
+
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT11105OPTA"
+        all_core = { remove_core = THIS }
+    }
+}
+
+# Event to Inherit (For NGF & SGF )
+country_event = {
+    id = 11106
+    title = "EVTNAME11106"
+    desc = "EVTDESC11106"
+    picture = "threehurrahs"
+
+    is_triggered_only = yes
+
+    option = {
+        name = "EVTOPTA11101"
+        set_country_flag = wants_to_unify
+        any_pop = {
+            limit = { is_primary_culture = yes }
+            militancy = -1
+        }
+        random_country = {
+            limit = {
+                primary_culture = north_german
+                OR = {
+                    tag = FROM
+                    tag = NGF
+                }
+            }
+            THIS = { all_core = { add_core = NGF } }
+        }
+        random_country = {
+            limit = {
+                primary_culture = south_german
+                OR = {
+                tag = FROM
+                tag = SGF
+                }
+            }
+            THIS = {
+                all_core = { add_core = SGF }
+            }
+        }
+        any_country = {
+            limit = {
+                OR = {
+                    is_sphere_leader_of = THIS
+                    is_our_vassal = THIS
+                }
+                NOT = { tag = FROM }
+            }
+            relation = {
+                who = FROM
+                value = -25
+            }
+            casus_belli = {
+                target = FROM
+                type = free_peoples
+                months = 12
+            }
+            casus_belli = {
+                target = FROM
+                type = humiliate
+                months = 12
+            }
+        }
+        any_country = {
+            limit = {
+                is_culture_group = THIS
+                is_greater_power = yes
+                NOT = { tag = FROM }
+            }
+            casus_belli = {
+                target = FROM
+                type = free_peoples
+                months = 36
+            }
+        }
+        FROM = { inherit = THIS }
+        ai_chance = {
+            factor = 75
+            modifier = {
+                factor = 0.8
+                NOT = {
+                    relation = { who = FROM value = 50 }
+                }
+            }
+            modifier = {
+                factor = 0.5
+                NOT = {
+                    relation = { who = FROM value = 0 }
+                }
+            }
+        }
+    }
+
+    option = {
+        name = "EVTOPTB11101"
+        clr_country_flag = wants_to_unify
+        prestige = 1
+        relation = {
+            who = FROM
+            value = -200
+        }
+        FROM = {
+            diplomatic_influence = {
+                who = THIS
+                value = -200
+            }
+        }
+        leave_alliance = FROM
+        any_pop = {
+            militancy = 3
+            consciousness = 2
+        }
+        ai_chance = {
+            factor = 25
+            modifier = {
+                factor = 0
+                has_country_flag = wants_to_unify
+            }
+            modifier = {
+                factor = 0
+                vassal_of = FROM
+            }
+            modifier = {
+                factor = 0
+                in_sphere = FROM
+                FROM = { NOT = { has_country_flag = secondary_union_formation } }
+            }
+            modifier = {
+                factor = 2
+                NOT = { in_sphere = FROM }
+                FROM = { has_country_flag = secondary_union_formation }
+            }
+            modifier = {
+                factor = 0
+                FROM = { tag = NGF }
+                NOT = {
+                    OR = {
+                        any_owned_province = { port = yes }
+                        any_neighbor_country = { primary_culture = south_german }
+                    }
+                }
+            }
+        }
+    }
+}
+
+country_event = {
+    id = 11121
+    title = "EVTNAME11121"
+    desc = "EVTDESC11121"
+    picture = "administration"
+
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT11121OPTA"
+        prestige = 5
+        relation = { who = FROM value = 50 }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 0.5
+                war_policy = jingoism
+            }
+            modifier = {
+                factor = 1.5
+                war_policy = anti_military
+            }
+        }
+    }
+
+    option = {
+        name = "EVT11121OPTB"
+        badboy = 10
+        relation = { who = FROM value = -200 }
+        diplomatic_influence = { who = FROM value = -200 }
+        leave_alliance = FROM
+        FROM = {
+            all_core = {
+                limit = { continent = europe }
+                add_core = THIS
+            }
+            casus_belli = {
+                target = THIS
+                type = humiliate
+                months = 60
+            }
+        }
+        any_country = {
+            limit = {
+                OR = {
+                    is_sphere_leader_of = FROM
+                    alliance_with = FROM
+                    tag = RUS
+                    NOT = { tag = THIS }
+                }
+            }
+            relation = { who = THIS value = -100 }
+            leave_alliance = THIS
+            casus_belli = {
+                target = THIS
+                type = cut_down_to_size
+                months = 60
+            }
+        }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 0
+                badboy = 0.8
+            }
+            modifier = {
+                factor = 0
+                war_policy = pacifism
+            }
+            modifier = {
+                factor = 0
+                FROM = {
+                    part_of_sphere = yes
+                    NOT = { in_sphere = THIS }
+                }
+            }
+            modifier = {
+                factor = 0.1
+                FROM = { brigades_compare = 1 }
+            }
+            modifier = {
+                factor = 0.5
+                war_policy = anti_military
+            }
+            modifier = {
+                factor = 1.5
+                war_policy = pro_military
+            }
+        }
+    }
+}
+
+# Generic Event to Inherit
+country_event = {
+    id = 98650
+    title = "EVTNAME98650" #Unification
+    desc = "EVTDESC98650"
+    picture = "Celebration"
+
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT98650OPTA"
+        any_country = {
+            limit = {
+                OR = {
+                    is_sphere_leader_of = THIS
+                    is_our_vassal = THIS
+                }
+                NOT = { tag = FROM }
+            }
+            relation = {
+                who = FROM
+                value = -50
+            }
+            casus_belli = {
+                target = FROM
+                type = humiliate
+                months = 12
+            }
+        }
+        FROM = { inherit = THIS }
+        ai_chance = {
+            factor = 75
+            modifier = {
+                factor = 0
+                is_greater_power = yes
+                NOT = { has_country_flag = wants_to_unify }
+            }
+            modifier = {
+                factor = 2
+                OR = {
+                    alliance_with = FROM
+                    relation = { who = FROM value = 100 }
+                }
+            }
+            modifier = {
+                factor = 0.1
+                government = fascist_dictatorship
+                FROM = { government = proletarian_dictatorship }
+            }
+            modifier = {
+                factor = 0.1
+                government = proletarian_dictatorship
+                FROM = { government = fascist_dictatorship }
+            }
+        }
+    }
+
+    option = {
+        name = "EVT98650OPTB"
+        clr_country_flag = wants_to_unify
+        prestige = 1
+        FROM = { country_event = 98651 }
+        any_pop = {
+            limit = { is_primary_culture = yes }
+            militancy = 3
+            consciousness = 2
+        }
+        ai_chance = {
+            factor = 25
+            modifier = {
+                factor = 0
+                has_country_flag = wants_to_unify
+            }
+            modifier = {
+                factor = 3
+                truce_with = FROM
+            }
+            modifier = {
+                factor = 1.5
+                NOT = {
+                    relation = { who = FROM value = 0 }
+                }
+            }
+            modifier = {
+                factor = 0.25
+                in_sphere = FROM
+            }
+            modifier = {
+                factor = 0.25
+                government = fascist_dictatorship
+                FROM = { government = fascist_dictatorship }
+            }
+            modifier = {
+                factor = 0.25
+                government = proletarian_dictatorship
+                FROM = { government = proletarian_dictatorship }
+            }
+            modifier = {
+                factor = 0.25
+                OR = {
+                    government = democracy
+                    government = prussian_constitutionalism
+                    government = hms_government
+                }
+                FROM = {
+                    OR = {
+                        government = democracy
+                        government = prussian_constitutionalism
+                        government = hms_government
+                    }
+                }
+            }
+        }
+    }
+}
+
+country_event = {
+    id = 98651
+    title = "EVTNAME98651"
+    desc = "EVTDESC98651"
+    picture = "administration"
+
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT98651OPTA"
+        leave_alliance = FROM
+        relation = { who = FROM value = -200 }
+        diplomatic_influence = { who = FROM value = -200 }
+        random_country = {
+            limit = {
+                tag = FROM
+                NOT = { number_of_states = 2 }
+            }
+            add_casus_belli = {
+                target = THIS
+                type = conquest
+                months = 24
+            }
+        }
+        random_country = {
+            limit = {
+                tag = FROM
+                number_of_states = 2
+            }
+            add_casus_belli = {
+                target = THIS
+                type = make_puppet
+                months = 24
+            }
+        }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 2
+                war_policy = jingoism
+            }
+            modifier = {
+                factor = 1.5
+                war_policy = pro_military
+            }
+            modifier = {
+                factor = 0
+                war_policy = pacifism
+            }
+        }
+    }
+
+    option = {
+        name = "EVT98651OPTB"
+        prestige = -5
+        relation = { who = FROM value = 50 }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 1.5
+                war_policy = anti_military
+            }
+            modifier = {
+                factor = 0.5
+                war_policy = jingoism
+            }
+        }
+    }
+}

@@ -1,0 +1,236 @@
+MGL = {
+    value = 80
+}
+
+leader = {
+    name = "Sakuma Shozan"
+    date = 1836.1.1
+    type = land
+    personality = clever
+    background = politician
+    prestige = 0.1
+}
+
+leader = {
+    name = "Takashima Shuhan"
+    date = 1836.1.1
+    type = land
+    personality = defiant
+    background = innovative_tactician
+    prestige = 0.1
+}
+
+leader = {
+    name = "Watanabe Kazan"
+    date = 1836.1.1
+    type = land
+    personality = strange
+    background = aristocrat
+    prestige = 0.1
+}
+
+leader = {
+    name = "Takano Choei"
+    date = 1836.1.1
+    type = land
+    personality = bold
+    background = aristocrat
+    prestige = 0.1
+}
+
+leader = {
+    name = "Prince Fushimi Kuniie"
+    date = 1836.1.1
+    type = land
+    personality = efficient
+    background = adventurer
+    prestige = 0.1
+}
+
+leader = {
+    name = "Prince Fushimi Sadanori"
+    date = 1836.1.1
+    type = land
+    personality = spirited
+    background = rising_star
+}
+
+army = {
+    name = "Imperial Guard"
+    location = 1657
+    regiment = {
+        name= "1.Guard"
+        type = cavalry
+        home = 1657
+    }
+    regiment = {
+        name= "2.Guard"
+        type = cavalry
+        home = 1676
+    }
+    regiment = {
+        name= "3.Guard"
+        type = cavalry
+        home = 1659
+    }
+	regiment = {
+        name= "1.Infantry"
+        type = infantry
+        home = 1638
+    }
+    regiment = {
+        name= "2.Infantry"
+        type = infantry
+        home = 1638
+    }
+    regiment = {
+        name= "2.Infantry"
+        type = infantry
+        home = 1657
+    }
+    regiment = {
+        name= "2.Infantry"
+        type = infantry
+        home = 1657
+    }
+    regiment = {
+        name= "1.Artillery"
+        type = artillery
+        home = 1638
+    }
+    regiment = {
+        name= "1.Artillery"
+        type = artillery
+        home = 1657
+    }
+    regiment = {
+        name= "1.Artillery"
+        type = artillery
+        home = 1657
+    }
+}
+
+army = {
+    name = "Yanma Clan"
+    location = 1641
+    regiment = {
+        name= "1.Guard"
+        type = cavalry
+        home = 1641
+    }
+    regiment = {
+        name= "2.Guard"
+        type = cavalry
+        home = 1641
+    }
+    regiment = {
+        name= "3.Guard"
+        type = cavalry
+        home = 1641
+    }
+	regiment = {
+        name= "1.Infantry"
+        type = infantry
+        home = 1639
+    }
+    regiment = {
+        name= "2.Infantry"
+        type = irregular
+        home = 1639
+    }
+    regiment = {
+        name= "2.Infantry"
+        type = irregular
+        home = 1639
+    }
+    regiment = {
+        name= "2.Infantry"
+        type = infantry
+        home = 1640
+    }
+    regiment = {
+        name= "1.Guard"
+        type = cavalry
+        home = 1640
+    }
+    regiment = {
+        name= "1.Artillery"
+        type = artillery
+        home = 1640
+    }
+    regiment = {
+        name= "1.Artillery"
+        type = artillery
+        home = 1640
+    }
+}
+
+army = {
+    name = "Edo Clan"
+    location = 1649
+    regiment = {
+        name = "1.Infantry"
+        type = infantry
+        home = 1649
+    }
+    regiment = {
+        name = "1.Infantry"
+        type = infantry
+        home = 1649
+    }
+    regiment = {
+        name = "1.Infantry"
+        type = infantry
+        home = 1649
+    }
+    regiment = {
+        name = "1.Infantry"
+        type = infantry
+        home = 1649
+    }
+    regiment = {
+        name = "1.Dragoon"
+        type = dragoon
+        home = 1649
+    }
+    regiment = {
+        name = "1.Artillery"
+        type = artillery
+        home = 1649
+    }
+    regiment = {
+        name = "1.Artillery"
+        type = artillery
+        home = 1649
+    }
+    regiment = {
+        name = "1.Artillery"
+        type = artillery
+        home = 1651
+    }
+    regiment = {
+        name = "1.Artillery"
+        type = artillery
+        home = 1652
+    }
+    regiment = {
+        name = "1.Artillery"
+        type = artillery
+        home = 1650
+    }
+}
+
+
+navy = {
+    name = "1st Fleet"
+    location = 1638 #Hiroshima
+    ship = {
+        name= "Sneeder Prime"
+        type = clipper_transport
+    }
+
+    ship = {
+        name= "Sneeder Prime"
+        type = clipper_transport
+    }
+}

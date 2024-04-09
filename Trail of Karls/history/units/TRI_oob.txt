@@ -1,0 +1,34 @@
+army = {
+    name = "Army of Tripoli"
+    location = 1734
+    regiment = {
+        name= "1st Arab Battalion"
+        type = irregular
+        home = 1744
+    }
+    regiment = {
+        name= "2nd Arab Battalion"
+        type = irregular
+        home = 1735
+    }
+
+    regiment = {
+        name= "1.Imazighen"
+        type = irregular
+        home = 1744
+    }
+
+    regiment = {
+        name= "1.Ihajenem"
+        type = irregular
+        home = 1740
+    }
+}
+
+leader = {
+    name = "Ali II Karamanli"
+    type = land
+    date = 1836.1.1
+    background = cavalry_school
+    personality = resolute
+}

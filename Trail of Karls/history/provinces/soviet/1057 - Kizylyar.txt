@@ -1,0 +1,7 @@
+owner = MGL
+controller = MGL
+add_core = GOL
+add_core = CHY
+trade_goods = silk
+life_rating = 35
+

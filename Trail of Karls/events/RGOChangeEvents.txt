@@ -1,0 +1,1380 @@
+#############################################
+#                                            #
+#                Cash Crops                    #
+#                                            #
+#############################################
+
+province_event = {
+    id = 199015
+    title = "EVTNAME199015" #Cash Crops - Cotton
+    desc = "EVTDESC199015"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = cotton
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = cotton
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = cotton
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = cotton
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = farmlands
+            terrain = plains
+            terrain = savanna
+            terrain = dryhills
+            terrain = steppe
+            terrain = hills
+            terrain = semidesert
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199022OPTA"
+        trade_goods = cotton
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199016
+    title = "EVTNAME199015" #Cash Crops - Tea
+    desc = "EVTDESC199016"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = tea
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tea
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tea
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = tea
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        any_neighbor_province = { trade_goods = tea }
+        OR = {
+            continent = asia
+            continent = oceania
+            continent = africa
+        }
+        OR = {
+            terrain = farmlands
+            terrain = mountain
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199022OPTA"
+        trade_goods = tea
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199020
+    title = "EVTNAME199015" #Cash Crops - Tobacco
+    desc = "EVTDESC199020"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = tobacco
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tobacco
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tobacco
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = tobacco
+            continent = europe
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = plains
+            terrain = savanna
+            terrain = dryhills
+            terrain = steppe
+            terrain = hills
+            terrain = semidesert
+            terrain = farmlands
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199022OPTA"
+        trade_goods = tobacco
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199022
+    title = "EVTNAME199015" #Cash Crops - Silk
+    desc = "EVTDESC199022"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        continent = asia
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = silk
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = silk
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = silk
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = silk
+            continent = europe
+            continent = north_america
+            continent = south_america
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = jungle
+            AND = {
+                terrain = farmlands
+                OR = {
+                    is_core = CHI
+                    is_core = HND
+                }
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 4000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199022OPTA"
+        trade_goods = silk
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199031
+    title = "EVTNAME199031" #Lumberyards in $PROVINCENAME$
+    desc = "EVTDESC199031"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = timber
+                    NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = timber
+                        NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = timber
+                        NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = timber
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = forest
+            terrain = montane_forest
+            terrain = boreal
+            terrain = hills
+            terrain = jungle
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199032OPTA"
+        trade_goods = timber
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199032
+    title = "EVTNAME199032" #Tropical Lumberyards in $PROVINCENAME$
+    desc = "EVTDESC199032"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = tropical_wood
+                    NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tropical_wood
+                        NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tropical_wood
+                        NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = tropical_wood
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = jungle
+            terrain = montane_forest
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199032OPTA"
+        trade_goods = tropical_wood
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199033
+    title = "EVTNAME199033" #Ranches in $PROVINCENAME$
+    desc = "EVTDESC199033"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = cattle
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = cattle
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = cattle
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = cattle
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = plains
+            terrain = savanna
+            terrain = dryhills
+            terrain = steppe
+            terrain = hills
+            terrain = semidesert
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199033OPTA"
+        trade_goods = cattle
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+province_event = {
+    id = 199034
+    title = "EVTNAME199034" #Grain Farms in $PROVINCENAME$
+    desc = "EVTDESC199034"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        province_control_days = 1095
+        owner = {
+            war = no
+            year = 1850
+            OR = {
+                any_owned_province = {
+                    trade_goods = grain
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = grain
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = grain
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+        NOT = {
+            trade_goods = grain
+            has_province_modifier = switched_production
+        }
+        OR = {
+            AND = {
+                unemployment_by_type = { type = farmers value = 0.5  }
+                has_pop_type = farmers
+                work_available = { worker = farmers }
+            }
+            AND = {
+                unemployment_by_type = { type = labourers value = 0.5  }
+                has_pop_type = labourers
+                work_available = { worker = labourers }
+            }
+        }
+        OR = {
+            terrain = plains
+            terrain = savanna
+            terrain = dryhills
+            terrain = steppe
+            terrain = hills
+            terrain = semidesert
+            terrain = farmlands
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 2000
+        modifier = {
+            factor = 0.001
+            NOT = { trade_goods = cotton }
+            NOT = { trade_goods = dye }
+            NOT = { trade_goods = wool }
+            NOT = { trade_goods = silk }
+            NOT = { trade_goods = coal }
+            NOT = { trade_goods = sulphur }
+            NOT = { trade_goods = iron }
+            NOT = { trade_goods = timber }
+            NOT = { trade_goods = tropical_wood }
+            NOT = { trade_goods = rubber }
+            NOT = { trade_goods = oil }
+            NOT = { trade_goods = precious_metal }
+            NOT = { trade_goods = precious_goods }
+            NOT = { trade_goods = cattle }
+            NOT = { trade_goods = fish }
+            NOT = { trade_goods = fruit }
+            NOT = { trade_goods = grain }
+            NOT = { trade_goods = tobacco }
+            NOT = { trade_goods = tea }
+            NOT = { trade_goods = coffee }
+            NOT = { trade_goods = opium }
+        }
+    }
+
+    option = {
+        name = "EVT199034OPTA"
+        trade_goods = grain
+        add_province_modifier = {
+            name = switched_production
+            duration = 1825
+        }
+        ai_chance = { factor = 100 }
+    }
+
+    option = {
+        name = "EVT199034OPTB"
+        ai_chance = { factor = 0 }
+    }
+}
+
+#Coal Found / Discovered
+province_event = {
+    id = 199035
+    title = "EVTNAME199036"
+    desc = "EVTDESC199036"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        owner = {
+            civilized = yes
+        }
+        OR = {
+            province_id = 2102  #Qwa-Qwa/Winburg
+            province_id = 2109  #Ga-Riba/Lydenburg
+            province_id = 2105  #Ga-Rankuwa/Pretoria
+            province_id = 1664  #Kumamoto, Japan
+            AND = {
+                year = 1900
+                OR = {
+                    province_id = 2334      #Punta Arenas
+                    province_id = 2332      #Osorno
+                    province_id = 1408    #Padang (Ombilin)
+                    province_id = 2481    #Swan Hill
+                    province_id = 2472    #Eden
+                    province_id = 2470    #Port Macquaire Australia
+                    province_id = 2471    #Bathurst
+                    province_id = 2473     #Wagga Wagga
+                    province_id = 2483     #Brisbane
+                    province_id = 2062       #Shangzhou - China
+                }
+            }
+            AND = {
+                year = 1880
+                OR = {
+                    province_id = 2147  #Ciudad Acuna
+                    province_id = 2152  #Monclova
+                    province_id = 2155  #Torreon
+                    province_id = 2255  #Barranquilla (El Cerrej�n mines)
+                    province_id = 598   #Bayreuth (Waldenburg)
+                    province_id = 2484  #Gladstone
+                    province_id = 1532  #Guihua - China
+                    province_id = 1253  #Bardwan - India
+                }
+            }
+            AND = {
+                year = 1870
+                OR = {
+                    province_id = 2099  #King's William Town
+                    province_id = 2098  #Port Rex
+                    province_id = 2101  #Bloemfontein
+                    province_id = 2103  #Philoppolis
+                    province_id = 2104  #Thaba Bosiu
+                    province_id = 2100  #Port St. Johns
+                    province_id = 2114     #Mbabane
+                    province_id = 2113    #Richard's bay
+                    province_id = 2112    #Emnambithi/Ladysmith
+                    province_id = 2111    #Durban
+                    province_id = 1619     #Pyongyang
+                    province_id = 216   #Roanoke
+                    province_id = 215   #Staunton
+                    province_id = 2556  #Asheville (Coal Glen)
+                    province_id = 171   #South Bend
+                    province_id = 172   #Fort Wayne
+                    province_id = 195   #Montgomery
+                    province_id = 166   #Peoria
+                    province_id = 151   #Des Moines
+                    province_id = 152   #Oskaloosa
+                    province_id = 108   #Grand Junction
+                    province_id = 109   #Aspen
+                    province_id = 99    #Moab
+                    province_id = 110   #Rock Springs
+                }
+            }
+            AND = {
+                year = 1850
+                OR = {
+                    province_id = 221  #Hagerstown
+                    province_id = 224  #Scranton
+                    province_id = 179  #Columbus
+                    province_id = 182  #Cincinati
+                    province_id = 180  #Sandusky
+                    province_id = 2565 #Cebu
+                }
+            }
+        }
+        NOT = { trade_goods = coal }
+        NOT = { has_province_modifier = switched_production }
+
+        owner = {
+            war = no
+            OR = {
+                any_owned_province = {
+                    trade_goods = coal
+                    NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = coal
+                        NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = coal
+                        NOT = { unemployment_by_type = { value = 0.01 type = labourers } }
+                    }
+                }
+            }
+        }
+    }
+
+    allow_multiple_instances = no
+
+    mean_time_to_happen = {
+        months = 40
+        modifier = {
+            factor = 0.5
+            year = 1880
+        }
+        modifier = {
+            factor = 0.5
+            year = 1890
+        }
+        modifier = {
+            factor = 0.5
+            year = 1900
+        }
+        modifier = {
+            factor = 0.5
+            year = 1905
+        }
+        modifier = {
+            factor = 10
+            province_id = 1399
+            NOT = { year = 1914 }
+        }
+        modifier = {
+            factor = 2
+            owner = { civilized = no }
+        }
+    }
+
+    option = {
+        name = "EVTOPTA199035"
+        trade_goods = coal
+        add_province_modifier = { 
+            name = switched_production 
+            duration = 365 
+        }
+    }
+}
+province_event = {
+    id = 1990351
+    title = "EVTNAME199035" #Nagasaki Treaty Port goes bust
+    desc = "EVTDESC199035"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        owner = {
+			tag = JAP
+        }
+        
+        province_id = 1661  #Nagasaki, Japan
+           
+        NOT = { trade_goods = coal }
+        NOT = { has_province_modifier = switched_production }
+
+    }
+
+    allow_multiple_instances = no
+
+    mean_time_to_happen = {
+        months = 1
+        
+    }
+
+    option = {
+        name = "EVTOPTA199035"
+        trade_goods = coal
+        add_province_modifier = { 
+            name = switched_production 
+            duration = 365 
+        }
+        
+    }
+}
+#Iron found
+province_event = {
+    id = 199036
+    title = "EVTNAME199035"
+    desc = "EVTDESC199035"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        year = 1860
+        OR = {
+            owner = { civilized = yes }
+            AND = {
+                owner = {
+                    OR = {
+                        tag = QNG
+                        tag = CHI
+                        tag = KOR
+                    }
+                }
+                year = 1920
+            }
+        }
+        OR = {
+            AND = {
+                OR = {
+                    province_id = 299         #Plymouth, UK
+                    province_id = 276         #Holyhead, UK
+                }
+                year = 1865
+            }
+            AND = {
+                OR = {
+                    province_id = 1629 #Wonsan
+                    province_id = 958 #Kiev
+                    province_id = 971 #Krivoy Rog
+                    province_id = 972 #Ekaterinoslav
+                    province_id = 961 #Cherkassy
+                    province_id = 1689 #Melilla
+                    province_id = 1688 #Ajdir
+                    province_id = 1681 #Wazzan
+                    province_id = 1702 #Setif
+                    province_id = 1270 #Gwalior, after 1880
+                    province_id = 682 #Breslau, after 1890
+                    ##France
+                    province_id = 434
+                    province_id = 428
+                    province_id = 411
+                    #Madagascar
+                    province_id = 2115
+                }
+                year = 1882
+            }
+            AND = {
+                OR = {
+                    province_id = 2108 #Nylstroom
+                    province_id = 2110 #Hoedspruit
+                    province_id = 1727 #Gafsa
+                    province_id = 1630 #Kangnung
+                    province_id = 1397 #Sandakan
+                    province_id = 2492 #Port Lincoln
+                    province_id = 2494 #Port Augusta
+                    province_id = 2495 #Oodnadatta
+                    province_id = 2475 #Broken Hill
+                    province_id = 2489 #Long Reach
+                    province_id = 2487 #Townsville
+                    province_id = 2482 #Tasmania
+                }
+                year = 1900
+            }
+            province_id = 412  #Metz, after 1860
+            province_id = 1679 #Amami, Japan
+            province_id = 1671 #Akita, Japan
+            province_id = 1672
+            province_id = 1642 #Hakodate, Japan
+            province_id = 1507 #Zhenyuan, China
+        }
+        NOT = { trade_goods = iron }
+        NOT = { has_province_modifier = switched_production }
+
+        owner = {
+            war = no
+            OR = {
+                any_owned_province = {
+                    trade_goods = iron
+                    NOT = { unemployment_by_type = { value = 0.05 type = labourers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = iron
+                        NOT = { unemployment_by_type = { value = 0.05 type = labourers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = iron
+                        NOT = { unemployment_by_type = { value = 0.05 type = labourers } }
+                    }
+                }
+            }
+        }
+    }
+
+    allow_multiple_instances = no
+
+    mean_time_to_happen = {
+        months = 40
+        modifier = {
+            factor = 0.75
+            year = 1910
+        }
+        modifier = {
+            factor = 0.5
+            year = 1915
+        }
+        modifier = {
+            factor = 0.5
+            year = 1920
+        }
+    }
+
+    option = {
+        name = "EVTOPTA199035"
+        trade_goods = iron
+        add_province_modifier = { 
+            name = switched_production 
+            duration = 365 
+        }
+        owner = {
+            random_owned = {
+                limit = { province_id = 1631 NOT = { trade_goods = silk } } #Wonju
+                trade_goods = silk
+                add_province_modifier = { name = switched_production duration = 365 }
+            }
+            random_owned = {
+                limit = { province_id = 1624 NOT = { trade_goods = tea } } #Hanseong
+                trade_goods = tea
+                add_province_modifier = { name = switched_production duration = 365 }
+            }
+            random_owned = {
+                limit = { province_id = 1636 NOT = { trade_goods = tea } } #Taejon
+                trade_goods = tea
+                add_province_modifier = { name = switched_production duration = 365 }
+            }
+        }
+    }
+}
+
+#Sulphur/Phosphate found
+province_event = {
+    id = 199037
+    title = "EVTNAME199037"
+    desc = "EVTDESC199037"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        year = 1840
+        owner = { civilized = yes }
+        province_id = 1670 #Morioka, Japan
+        NOT = { trade_goods = sulphur }
+        NOT = { has_province_modifier = switched_production }
+
+        owner = {
+            war = no
+            OR = {
+                any_owned_province = {
+                    trade_goods = sulphur
+                    NOT = { unemployment_by_type = { value = 0.05 type = labourers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = sulphur
+                        NOT = { unemployment_by_type = { value = 0.05 type = labourers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = sulphur
+                        NOT = { unemployment_by_type = { value = 0.05 type = labourers } }
+                    }
+                }
+            }
+        }
+    }
+
+    allow_multiple_instances = no
+
+    mean_time_to_happen = {
+        months = 36
+    }
+
+    option = {
+        name = "EVTOPTA199037"
+        trade_goods = sulphur
+        add_province_modifier = { 
+            name = switched_production 
+            duration = 365 
+        }
+    }
+}
+
+#Tea spread
+province_event = {
+    id = 199073
+    title = "EVTNAME199073"
+    desc = "EVTDESC199073"
+
+    trigger = {
+        owned_by = THIS
+        controlled_by = THIS
+        NOT = { trade_goods = tea }
+        NOT = { has_province_modifier = switched_production }
+        owner = {
+            QNG = { war = no }
+            war = no
+            OR = {
+                any_owned_province = {
+                    trade_goods = tea
+                    NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                }
+                any_neighbor_country = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tea
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+                any_greater_power = {
+                    war = no
+                    any_owned_province = {
+                        trade_goods = tea
+                        NOT = { unemployment_by_type = { value = 0.01 type = farmers } }
+                    }
+                }
+            }
+        }
+
+        OR = {
+            province_id = 1648 #Toyama, Japan
+            province_id = 1657 #Kyoto, Japan
+            province_id = 1655 #Osaka, Japan
+            province_id = 1667 #Tokushima, Japan
+            AND = {
+                year = 1855
+                OR = {
+                    province_id = 2566
+                    province_id = 1304
+                    province_id = 1319
+                    province_id = 1316
+                    province_id = 1302
+                    province_id = 1261
+                    province_id = 1262
+                    province_id = 1628
+                    province_id = 2640
+                    province_id = 1624
+                    province_id = 1222
+                    province_id = 1231
+                    province_id = 1228
+                    province_id = 1225
+                    province_id = 1246
+                    province_id = 1300
+                    province_id = 1306
+                    province_id = 1307
+                    province_id = 1295
+                    province_id = 1233
+                    province_id = 1635
+                    province_id = 1632
+                    province_id = 1636
+                    province_id = 1252
+                    province_id = 1511 #Zhengzhou
+                }
+            }
+            AND = {
+                year = 1870
+                OR = {
+                    province_id = 1297
+                    province_id = 1266
+                    province_id = 1290
+                    province_id = 1593
+                    province_id = 1248
+                    province_id = 1318
+                    province_id = 1350
+                    province_id = 1359
+                    province_id = 1407
+                    province_id = 1301
+                    province_id = 1278
+                    province_id = 1274
+                    province_id = 1236
+                    province_id = 1569
+                    province_id = 1502
+                    province_id = 1662
+                    province_id = 1565
+                    province_id = 1540
+                    province_id = 1547
+                    province_id = 1474
+                    province_id = 1524
+                    province_id = 1541 #Tongzhou
+                    province_id = 1471 #Chizhou
+                    province_id = 1473 #Huizhou
+                    province_id = 1509 #Anshun
+                }
+            }
+
+            AND = {
+                year = 1890
+                OR = {
+                    province_id = 1311
+                    province_id = 1317
+                    province_id = 1303
+                    province_id = 1326
+                    province_id = 1308
+                    province_id = 1312
+                    province_id = 1537
+                    province_id = 1541
+                    province_id = 1507 #Zhenyuan - China
+                    province_id = 1503 #Guilin
+                }
+            }
+
+            AND = {
+                year = 1910
+                OR = {
+                    province_id = 1258
+                    province_id = 1259
+                    province_id = 1260
+                    province_id = 1328
+                    province_id = 1486 #Tingzhou
+                    province_id = 1482 #Fuzhou
+                }
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 150
+        modifier = {
+            factor = 3
+            civilized = no
+        }
+    }
+    allow_multiple_instances = no
+
+    option = {
+        name = "EVTOPTA199073"
+        trade_goods = tea
+        add_province_modifier = { name = switched_production duration = 1825 }
+    }
+}

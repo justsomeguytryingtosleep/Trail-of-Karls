@@ -1,0 +1,41 @@
+
+leader = {
+    name = "DrDumbass"
+    date = 1828.1.1
+    type = land
+    personality = efficient
+    background = bootlicker
+}
+
+
+army = {
+    name = "Die Landsarmee"
+    location = 729
+
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 729
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 729
+    }
+    regiment = {
+        name = "Infantry Brigade"
+        type = infantry
+        home = 744
+    }
+    regiment = {
+        name = "Artee Brigade"
+        type = artillery
+        home = 744
+    }
+    regiment = {
+        name = "Artee Brigade"
+        type = artillery
+        home = 744
+    }
+
+}
